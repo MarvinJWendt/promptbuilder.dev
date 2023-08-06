@@ -28,7 +28,10 @@ export async function getPaths() {
 }
 
 let getPathDataCache = null;
-let usePathDataCache = false; // TODO: set to true in production
+
+// If node env is production, usePathDataCache is true
+let usePathDataCache = process.env.NODE_ENV === 'production';
+console.log("Use Cached files: " + usePathDataCache);
 
 function initializeCache() {
   const pathsDir = join(process.cwd(), './src/lib/paths');
