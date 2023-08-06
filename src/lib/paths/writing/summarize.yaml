@@ -1,0 +1,46 @@
+name: Summarize
+description: Summarize a text.
+steps:
+    - title: Style
+      elements:
+          - label: Language
+            type: text
+            value: English
+            prompt: 'Language: {{value}}'
+          - label: Tone
+            type: select
+            options:
+                - value: Formal
+                - value: Informal
+                  selected: true
+            prompt: 'Tone: {{value}}'
+          - label: Length
+            type: select
+            options:
+                - value: Very Short
+                - value: Short
+                - value: Medium
+                  selected: true
+                - value: Long
+            prompt: 'Length: {{value}}'
+          - label: Style
+            type: select
+            options:
+                - value: Short bullet points with just the key points
+                - value: Short bullet points
+                - value: Long bullet points
+                - value: Full sentences
+                  selected: true
+            prompt: 'Style of the summary: {{value}}'
+    - title: Text
+      elements:
+          - label: Text
+            type: textarea
+            value: ''
+            prompt: |2-
+            
+              Summarize the following text:
+            
+              ---
+            
+              {{value}}

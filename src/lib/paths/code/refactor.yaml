@@ -1,0 +1,42 @@
+name: Refactor
+description: Refactor code.
+steps:
+  - title: Additional options
+    elements:
+      - label: Explanation
+        type: select
+        options:
+          - value: Just code
+            active: Reply with code only. Do not explain improvements, or what you did.
+            selected: false
+          - value: Short explanation
+            active: Reply with code and a short explanation of what you did.
+            selected: true
+          - value: Detailed explanation
+            active: Reply with code and a detailed explanation of what you did.
+            selected: false
+        prompt: 'Level of explanation: {{value}}'
+      - label: Options
+        type: multiselect
+        options:
+          - value: Comment code
+            active: Do comment code
+            inactive: Do not comment code
+            selected: true
+          - value: Improve performance
+            active: Do improve performance
+            inactive: Do not improve performance
+            selected: true
+        prompt: 'Additional options: {{value}}'
+  - title: Code
+    elements:
+      - label: Code
+        type: textarea
+        value: ''
+        prompt: |2-
+        
+          Refactor the following code with the selected options:
+        
+          ```
+          {{value}}
+          ```
