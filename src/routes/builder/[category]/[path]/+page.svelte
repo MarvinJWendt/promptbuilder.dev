@@ -1,21 +1,13 @@
 <script>
-  import {fade} from "svelte/transition";
-  import {onMount} from "svelte";
   import FormFactory from "$lib/components/form/FormFactory.svelte";
 
   export let data
 
-  let pathData;
+  let pathData = data.pathData;
   let step = 1;
-
-  onMount(async () => {
-    const res = await fetch(`/api/path/${data.category}/${data.path}`);
-    pathData = await res.json();
-    console.log(pathData)
-  });
 </script>
 
-<div class="h-screen flex flex-col items-center text-white mx-8 mt-20" transition:fade>
+<div class="h-screen flex flex-col items-center text-white mx-8 mt-20">
     <div class="w-full">
         {#if pathData}
             <FormFactory pathData="{pathData}" step="{step}"/>

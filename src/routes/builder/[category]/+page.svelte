@@ -1,15 +1,7 @@
 <script>
-  import {onMount} from "svelte";
+  export let data;
 
-  export let data
-
-  let category;
-
-  onMount(async () => {
-    const res = await fetch('/api/categories');
-    let categories = await res.json();
-    category = categories.find(c => c.name === data.category);
-  });
+  let category = data.category;
 </script>
 
 <div class="h-screen bg-gray-900 flex flex-col justify-center items-center text-white">

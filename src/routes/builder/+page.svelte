@@ -1,14 +1,6 @@
 <script>
-  import {onMount} from 'svelte';
-
-  let categories;
-
-  onMount(async () => {
-    const res = await fetch('/api/categories');
-    categories = await res.json();
-  });
-
-  // Optionally, add 30 random categories
+    export let data;
+    let categories = data.categories;
 </script>
 
 <div class="h-screen flex flex-col justify-center items-center text-white">
