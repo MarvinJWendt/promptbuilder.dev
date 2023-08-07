@@ -1,3 +1,7 @@
+<svelte:head>
+    <title>Prompt Builder</title>
+</svelte:head>
+
 <div class="hero min-h-screen">
     <div class="hero-content text-center">
         <div class="max-w-md">

@@ -4,6 +4,10 @@
   let category = data.category;
 </script>
 
+<svelte:head>
+    <title>Prompt Builder | Category {category.name}</title>
+</svelte:head>
+
 <div class="h-screen bg-gray-900 flex flex-col justify-center items-center text-white">
     <h1 class="text-3xl mb-8">Choose a path</h1>
     {#if category}
@@ -22,9 +26,3 @@
     </div>
     <a href="/builder" class="link text-gray-400">Back to categories</a>
 </div>
-
-<style>
-    :global(body) {
-        overflow-y: hidden;
-    }
-</style>

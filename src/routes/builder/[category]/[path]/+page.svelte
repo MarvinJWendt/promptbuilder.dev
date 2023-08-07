@@ -7,6 +7,10 @@
   let step = 1;
 </script>
 
+<svelte:head>
+    <title>Prompt Builder | {pathData.description}</title>
+</svelte:head>
+
 <div class="h-screen flex flex-col items-center text-white mx-8 mt-20">
     <div class="w-full">
         {#if pathData}
@@ -19,9 +23,3 @@
         {/if}
     </div>
 </div>
-
-<style>
-    :global(body) {
-        overflow-y: auto !important;
-    }
-</style>
