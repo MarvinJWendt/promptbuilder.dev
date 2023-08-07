@@ -1,10 +1,10 @@
 name: Refactor
-description: Refactor code.
+description: Refactor code
 steps:
   - title: Additional options
     elements:
-      - label: Explanation
-        type: select
+      - type: select
+        label: Explanation
         options:
           - value: Just code
             active: Reply with code only. Do not explain improvements, or what you did.
@@ -16,8 +16,8 @@ steps:
             active: Reply with code and a detailed explanation of what you did.
             selected: false
         prompt: 'Level of explanation: {{value}}'
-      - label: Options
-        type: multiselect
+      - type: multiselect
+        label: Options
         options:
           - value: Comment code
             active: Do comment code
@@ -27,7 +27,28 @@ steps:
             active: Do improve performance
             inactive: Do not improve performance
             selected: true
-        prompt: 'Additional options: {{value}}'
+          - value: Improve readability
+            active: Do improve readability
+            inactive: Do not improve readability
+            selected: true
+          - value: Improve security
+            active: Do improve security, if applicable
+            inactive: Do not improve security
+            selected: true
+          - value: Compress code
+            active: Try to make the overall code smaller
+            selected: true
+          - value: Create functions for repeated code
+            active: Create functions for repeated code
+            inactive: Do not create functions for repeated code
+            selected: true
+          - value: Allow external libraries
+            active: The usage of external libraries is allowed, but not required. Try to use the standard library, if possible.
+            inactive: The usage of external libraries is strictly forbidden.
+            selected: true
+        prompt: |-
+          
+          Additional options: {{value}}
   - title: Code
     elements:
       - label: Code

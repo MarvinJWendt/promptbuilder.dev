@@ -1,119 +1,53 @@
 <script>
+  import yaml from "js-yaml";
 
-  import Select from "$lib/components/form/Select.svelte";
-  import TextInput from "$lib/components/form/TextInput.svelte";
-  import TextArea from "$lib/components/form/TextArea.svelte";
-  import Multiselect from "$lib/components/form/Multiselect.svelte";
+  let data = {}
 
-  export let pathData;
-  $: console.log("Pathdata update:", pathData)
-  export let prompt = "";
-  $: console.log("Prompt update:", prompt)
-  $: pathData && renderPrompt();
-
-  function renderPrompt() {
-    prompt = "This prompt was generated using a builder. " +
-      "I will now give you requirements that the user has specified. " +
-      "Your job is to follow them stricly.\n\n" +
-      `Your task is: "${pathData.description}"\n\n`
-
-    for (let step of pathData.steps) {
-      for (let element of step.elements) {
-        let tmpl = element.prompt
-
-        if (element.type === "multiselect") {
-          let values = element.options.map(o => o.selected ? o.active : o.inactive)
-          values = values.map(v => "- " + v)
-          tmpl = tmpl.replaceAll("{{value}}", `\n${values.join("\n")}`)
-        } else if (element.type === "select") {
-          let selectedElement = element.options.find(o => o.selected)
-          tmpl = tmpl.replaceAll("{{value}}", selectedElement.active ? selectedElement.active : selectedElement.value)
-        } else {
-          tmpl = tmpl.replaceAll("{{value}}", element.value)
-        }
-
-        prompt += tmpl + "\n"
-      }
-    }
-  }
-
-  function copyToClipboard() {
-    const textToCopy = prompt;
-
-    // Using the Clipboard API where available
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        console.log('Text copied to clipboard');
-      }).catch(err => {
-        console.error('Could not copy text: ', err);
-      });
-    } else {
-      // Fallback for older browsers
-      const textarea = document.createElement('textarea');
-      textarea.textContent = textToCopy;
-      textarea.style.position = 'fixed'; // Prevent scrolling to the bottom of the page
-      document.body.appendChild(textarea);
-      textarea.select();
-      try {
-        document.execCommand('copy');
-        console.log('Text copied to clipboard');
-      } catch (err) {
-        console.error('Could not copy text: ', err);
-      } finally {
-        document.body.removeChild(textarea);
-      }
+  function setDataType() {
+    if (data.type === "text") {
+      data = {
+        type: "text",
+        label: "",
+        prompt: "{{value}}",
+      };
+    } else if (data.type === "textarea") {
+      data = {
+        type: "textarea",
+        label: "",
+        prompt: "{{value}}",
+      };
+    } else if (data.type === "number") {
+      data = {
+        type: "number",
+        label: "",
+        prompt: "{{value}}",
+      };
+    } else if (data.type === "select") {
+      data = {
+        type: "select",
+        label: "",
+        options: [],
+        prompt: "",
+      };
+    } else if (data.type === "multiselect") {
+      data = {
+        type: "multiselect",
+        label: "",
+        options: [],
+        prompt: "",
+      };
     }
   }
 </script>
 
-<div class="min-h-screen flex m-8 mb-12 mx-auto">
-    <div class="text-white w-full">
-        <h1 class="text-5xl mb-2">{pathData.name}</h1>
-        <p class="text-xl mb-6 text-gray-400">{pathData.description}</p>
-
-        {#each pathData.steps as step}
-            <div class="step mt-8">
-                <h2 class="text-2xl mb-4 border-b border-gray-600 pb-2">{step.title}</h2>
-
-                <!-- Adjusting grid layout for responsive design -->
-                <div class="grid ss sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {#each step.elements as element, index}
-                        {#if element.type === "select"}
-                            <Select label="{element.label}" bind:items="{element.options}"/>
-                        {:else if element.type === "text"}
-                            <TextInput label="{element.label}" bind:text="{element.value}"/>
-                        {:else if element.type === "textarea"}
-                            <div class="col-span-full">
-                                <TextArea label="{element.label}" bind:text="{element.value}"/>
-                            </div>
-                        {:else if element.type === "multiselect"}
-                            <Multiselect bind:items="{element.options}" label="{element.label}"/>
-                        {:else}
-                            <p>UNKNOWN</p>
-                        {/if}
-                    {/each}
-                </div>
-            </div>
-        {/each}
-
-        <div class="prompt mt-12 border-t border-gray-700 pt-6">
-            <h2 class="text-2xl mb-4">Prompt</h2>
-            <div class="relative bg-gray-700 rounded p-4 shadow-lg">
-                <button
-                        class="absolute top-2 right-2 bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
-                        on:click={copyToClipboard}
-                >
-                    Copy
-                </button>
-                <pre class="text-white overflow-x-auto mb-0">{prompt}</pre>
-            </div>
-        </div>
-    </div>
+<div class="flex flex-col gap-2">
+    <label class="block text-gray-400 text-sm">Component</label>
+    <select bind:value={data.type} on:change={setDataType} class="select">
+        <option value="text">Text</option>
+        <option value="textarea">TextArea</option>
+        <option value="number">Number</option>
+        <option value="select">Select</option>
+        <option value="multiselect">MultiSelect</option>
+    </select>
+    <pre>{yaml.dump(data)}</pre>
 </div>
-
-<style>
-    pre {
-        white-space: pre-wrap;
-    }
-</style>
-

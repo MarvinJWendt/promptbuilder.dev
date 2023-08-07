@@ -1,7 +1,7 @@
 <script>
   import {fade} from "svelte/transition";
   import {onMount} from "svelte";
-  import FormBuilder from "$lib/components/form/FormBuilder.svelte";
+  import FormFactory from "$lib/components/form/FormFactory.svelte";
 
   export let data
 
@@ -18,7 +18,7 @@
 <div class="h-screen flex flex-col items-center text-white mx-8 mt-20" transition:fade>
     <div class="w-full">
         {#if pathData}
-            <FormBuilder pathData="{pathData}" step="{step}"/>
+            <FormFactory pathData="{pathData}" step="{step}"/>
         {:else}
             <div class="h-screen flex flex-col items-center justify-center">
                 <h2 class="text-2xl mb-4">Loading...</h2>
