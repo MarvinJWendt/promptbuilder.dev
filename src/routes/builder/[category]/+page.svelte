@@ -8,7 +8,7 @@
     <title>Prompt Builder | Category {category.name}</title>
 </svelte:head>
 
-<div class="h-screen bg-gray-900 flex flex-col justify-center items-center text-white">
+<div class="min-h-screen bg-gray-900 flex flex-col justify-center items-center text-white">
     <h1 class="text-3xl mb-8">Choose a path</h1>
     {#if category}
         <div class="flex flex-wrap gap-4 justify-center">

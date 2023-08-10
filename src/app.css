@@ -6,10 +6,6 @@
   @apply bg-gray-900;
 }
 
-body {
-    @apply mx-auto sm:w-3/4 max-w-4xl;
-}
-
 h1 {
   @apply text-3xl;
 }

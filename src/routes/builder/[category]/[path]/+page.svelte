@@ -11,7 +11,7 @@
     <title>Prompt Builder | {pathData.description}</title>
 </svelte:head>
 
-<div class="h-screen flex flex-col items-center text-white mx-8 mt-20">
+<div class="min-h-screen flex flex-col items-center text-white mx-8 mt-20">
     <div class="w-full">
         {#if pathData}
             <FormFactory pathData="{pathData}" step="{step}"/>

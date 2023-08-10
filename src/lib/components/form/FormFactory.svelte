@@ -12,10 +12,18 @@
   $: console.log("Prompt update:", prompt)
   $: pathData && renderPrompt();
 
+  // PromptA is the first 3 lines of the prompt
+  let promptA = "";
+  $: promptA = prompt.split("\n").slice(0, 3).join("\n");
+
+  // PromptB is the rest of the prompt
+  let promptB = "";
+  $: promptB = prompt.split("\n").slice(3).join("\n");
+
   function renderPrompt() {
     prompt = "This prompt was generated using a builder. " +
       "I will now give you requirements that the user has specified. " +
-      "Your job is to follow them stricly.\n\n" +
+      "Your job is to follow them strictly.\n\n" +
       `Your task is: "${pathData.description}"\n\n`
 
     for (let step of pathData.steps) {
@@ -102,18 +110,21 @@
             </div>
         {/each}
 
-        <div class="prompt mt-12 border-t border-gray-700 pt-6">
-            <h2 class="text-2xl mb-4">Prompt</h2>
+        <h1 class="text-3xl mb-2 mt-8">Prompt</h1>
+        <div class="border-t border-gray-700 pt-6">
             <div class="relative bg-gray-700 rounded p-4 shadow-lg">
                 <button
-                        class="absolute top-2 right-2 bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                        class="float-right btn hover:bg-blue-600 text-white rounded"
                         on:click={copyToClipboard}
                 >
                     Copy
                 </button>
-                <pre class="text-white overflow-x-auto mb-0">{prompt}</pre>
+                <pre class="text-white overflow-x-auto mb-0">{promptA}</pre>
+                <pre class="text-white overflow-x-auto mb-0">{promptB}</pre>
             </div>
         </div>
+
+
     </div>
 </div>
 

@@ -7,7 +7,7 @@
     <title>Prompt Builder | Categories</title>
 </svelte:head>
 
-<div class="h-screen flex flex-col justify-center items-center text-white">
+<div class="min-h-screen flex flex-col justify-center items-center text-white">
     <h1 class="text-3xl mb-8">Select a category</h1>
     {#if categories}
         <div class="flex flex-wrap gap-4 justify-center">

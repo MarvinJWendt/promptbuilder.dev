@@ -1,0 +1,74 @@
+name: Tweet
+description: Write a tweet
+steps:
+  - title: Tweet Style
+    elements:
+      - label: Language
+        type: text
+        value: English
+        prompt: 'Language: {{value}}'
+      - label: Tone
+        type: select
+        options:
+          - value: Formal
+            selected: true
+          - value: Informal
+          - value: Funny
+          - value: Engaging
+          - value: Excited
+          - value: Sarcastic
+          - value: Serious
+          - value: Sad
+        prompt: 'Tone: {{value}}'
+      - label: Detail Level
+        type: select
+        options:
+          - value: Short
+            active: The tweet should be as short as possible. Just a couple sentences.
+            selected: true
+          - value: Detailed
+            active: The tweet should be detailed. Try to keep the key details.
+          - value: Very detailed
+            active: The tweet should be very detailed. Try to keep all details.
+        prompt: 'Length: {{value}}'
+      - label: Style
+        type: select
+        options:
+          - value: Single tweet
+            active: Only write a single tweet. Do not use threads.
+            selected: true
+          - value: Threaded
+            active: Write a Twitter Thread, consisting of multiple tweets. Separate the tweets by two new lines.
+          - value: Reply
+            active: Write the tweet as a reply to another tweet. The original tweet is included at the end of this prompt in the content section.
+        prompt: 'Style of the tweet: {{value}}'
+  - title: Options
+    elements:
+      - label: Options
+        type: multiselect
+        options:
+          - value: Use Hashtags
+            active: Include a few key hashtags that fit to the tweet. Do not overdo it. Only include hashtags in the very first tweet, if the output is a thread.
+            inactive: Do not use hashtags.
+          - value: Use Emojis
+            active: Use a few appropriate emojis. Do not over do it.
+            inactive: Do not use emojis.
+          - value: Boost engagement
+            active: Try to boost engagement of the tweet with a fitting technique.
+          - value: Include programming code
+            active: Include some programming code in the tweet/s if appropriate.
+            inactive: DO NOT include programming code in any tweet!
+        prompt: |-
+          
+          Additional options:{{value}}
+  - title: Content
+    elements:
+      - label: Content
+        type: textarea
+        prompt: |-
+          
+          Use the following information to write the tweet:
+          
+          ---
+          
+          {{value}}
