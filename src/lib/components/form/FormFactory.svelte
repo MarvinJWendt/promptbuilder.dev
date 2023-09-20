@@ -78,9 +78,9 @@
   }
 </script>
 
-<div class="min-h-screen flex m-8 mb-12 mx-auto">
+<div class="min-h-screen flex mb-12 mx-auto">
     <div class="text-white w-full">
-        <h1 class="text-5xl mb-2">{pathData.name}</h1>
+        <h1 class="text-5xl mb-2 font-bold">{pathData.name}</h1>
         <p class="text-xl mb-6 text-gray-400">{pathData.description}</p>
 
         {#each pathData.steps as step}

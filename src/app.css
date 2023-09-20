@@ -7,17 +7,17 @@
 }
 
 h1 {
-  @apply text-3xl;
+  @apply text-5xl font-bold mb-4 mt-6;
 }
 
 h2 {
-  @apply text-2xl;
+  @apply text-4xl font-bold mb-4 mt-6;
 }
 
 h3 {
-  @apply text-xl;
+  @apply text-3xl font-bold mb-4 mt-6;
 }
 
 h4 {
-  @apply font-bold;
+  @apply text-2xl font-bold mb-4 mt-6;
 }
