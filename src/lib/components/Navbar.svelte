@@ -3,6 +3,6 @@
         <a href="/" class="btn btn-ghost normal-case text-xl">Prompt Builder</a>
     </div>
     <div class="flex-none">
-        <a href="https://github.com/MarvinJWendt/promptbuilder.dev" class="btn btn-ghost btn-sm mr-8">GitHub</a>
+        <a href="https://marvin.ws/twitter" class="btn btn-ghost btn-sm mr-8">Twitter</a>
     </div>
 </nav>

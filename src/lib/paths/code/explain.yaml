@@ -1,0 +1,53 @@
+name: Explain code
+description: Explain code in various levels of detail
+steps:
+  - title: Options
+    elements:
+      - type: select
+        label: Your experience with the language
+        options:
+          - value: Beginner
+            active: I am a beginner, please explain the code using in simple terms. If you use technical terms, please explain them too.
+            selected: false
+          - value: Intermediate
+            active: I am an intermediate, please explain the code using technical terms. If you use advanced technical terms, please explain them too.
+            selected: true
+          - value: Advanced
+            active: I am advanced, you may use advanced technical terms without explaining them.
+            selected: false
+        prompt: "My experience with the language: {{value}}\n"
+      - type: select
+        label: Level of detail
+        options:
+          - value: Very detailed
+            active: Please explain the code in great detail. I want to understand every single line.
+            selected: false
+          - value: Detailed
+            active: Please explain the code in detail. I want to understand the overall structure and the most important lines.
+            selected: true
+          - value: Short
+            active: Please explain the code in short. I want to understand the overall structure.
+            selected: false
+        prompt: "Level of detail: {{value}}\n"
+      - type: select
+        label: Output format
+        options:
+          - value: Bullet points
+            active: Please explain the code using bullet points.
+            selected: false
+          - value: Sentences
+            active: Please explain the code using full sentences.
+            selected: true
+        prompt: "Output format: {{value}}\n"
+  - title: Code
+    elements:
+      - label: Code
+        type: textarea
+        value: ''
+        prompt: |2-
+          
+          Explain the following code: 
+          
+          ```
+          {{value}}
+          ```

@@ -16,7 +16,7 @@
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/#{data.category}">{data.category}</a></li>
-            <li>{pathData.name.toLowerCase().replaceAll("-", " ")}</li>
+            <li>{data.path.toLowerCase().replaceAll("-", " ")}</li>
         </ul>
     </div>
     <div class="w-full">
