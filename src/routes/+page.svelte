@@ -52,7 +52,7 @@
                         <div class="collapse-content">
                             <ul class="ml-6 list-disc">
                                 {#each category.paths as path}
-                                    <li><a class="link" href="/prompts/{category.name}/{path}">{titleCase(path)}</a></li>
+                                    <li><a class="link" href="/{category.name}/{path}">{titleCase(path)}</a></li>
                                 {/each}
                             </ul>
                         </div>
