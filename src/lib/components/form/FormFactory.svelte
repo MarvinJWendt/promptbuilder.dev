@@ -24,7 +24,7 @@
     prompt = "This prompt was generated using a builder. " +
       "I will now give you requirements that the user has specified. " +
       "Your job is to follow them strictly.\n\n" +
-      `Your task is: "${pathData.description}"\n\n`
+      `Your task is: "${pathData.name}"\n\n`
 
     for (let step of pathData.steps) {
       for (let element of step.elements) {
@@ -87,7 +87,7 @@
             <div class="step mt-8">
                 <h2 class="text-2xl mb-4 border-b border-gray-600 pb-2">{step.title}</h2>
 
-                <div class="grid ss sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class={step.elements.length > 1 ? "grid ss sm:grid-cols-2 md:grid-cols-3 gap-4" : ""}>
                     {#each step.elements as element}
                         {#if element.type === "select"}
                             <Select label="{element.label}" bind:items="{element.options}"/>
@@ -109,6 +109,7 @@
                 </div>
             </div>
         {/each}
+
 
         <h1 class="text-3xl mb-2 mt-8">Prompt</h1>
         <div class="border-t border-gray-700 pt-6">

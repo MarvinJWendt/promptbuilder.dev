@@ -1,5 +1,5 @@
-name: Refactor
-description: Refactor code
+name: Refactor code
+description: Refactor code to improve performance, readability, security, and/or size
 steps:
   - title: Additional options
     elements:

@@ -1,5 +1,5 @@
-name: Tweet
-description: Write a tweet
+name: Write a tweet
+description: Write a tweet about a specific topic
 steps:
   - title: Tweet Style
     elements:
