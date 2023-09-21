@@ -1,17 +1,17 @@
 import {getPaths} from "$lib/builder/paths.js";
 
 export async function GET() {
-  // Get all paths
-  const paths = await getPaths();
+  const paths = [
+    "https://promptbuilder.dev/",
+  ]
 
-  // Array of all paths
-  // Schema: https://promptbuilder.dev/{category}/{path}
-  const allPaths = paths
-    .map(category => category.paths.map(path => `https://promptbuilder.dev/${category.name}/${path}`))
-    .flat();
+  // Get all paths
+  let tmp = await getPaths();
+  tmp = tmp.map(category => category.paths.map(path => `https://promptbuilder.dev/${category.name}/${path}`)).flat()
+  paths.push(...tmp);
 
   // Generate sitemap
-  const sitemap = generateSitemap(allPaths);
+  const sitemap = generateSitemap(paths);
 
   return new Response(sitemap,
     {
