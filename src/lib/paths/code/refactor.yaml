@@ -17,7 +17,6 @@ steps:
             selected: false
         prompt: 'Level of explanation: {{value}}'
       - type: multiselect
-        label: Options
         options:
           - value: Comment code
             active: Do comment code

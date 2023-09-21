@@ -40,6 +40,8 @@
         } else if (element.type === "select") {
           let selectedElement = element.options.find(o => o.selected)
           tmpl = tmpl.replaceAll("{{value}}", selectedElement.active ? selectedElement.active : selectedElement.value)
+        } else if (element.type === "textarea") {
+          tmpl = tmpl.replaceAll("{{value}}", element.inactive && !element.value ? element.inactive : element.value)
         } else {
           tmpl = tmpl.replaceAll("{{value}}", element.value)
         }
