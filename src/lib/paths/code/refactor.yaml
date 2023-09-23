@@ -44,7 +44,7 @@ steps:
           - value: Allow external libraries
             active: The usage of external libraries is allowed, but not required. Try to use the standard library, if possible.
             inactive: The usage of external libraries is strictly forbidden.
-            selected: true
+            selected: false
         prompt: |-
           
           Additional options: {{value}}
