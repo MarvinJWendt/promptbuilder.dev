@@ -47,7 +47,7 @@
         {#each sortedCategories as col}
             <div>
                 {#each col as category}
-                    <details id="{category.name.toLowerCase()}" class="collapse bg-info/70 text-white collapse-arrow bg-base-200 mb-8">
+                    <details id="{category.name.toLowerCase()}" class="collapse border border-base-content text-white collapse-arrow mb-8">
                         <summary class="collapse-title text-xl font-medium select-none">{titleCase(category.name)}</summary>
                         <div class="collapse-content">
                             <ul class="ml-6 list-disc">

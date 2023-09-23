@@ -22,6 +22,6 @@
 
 <style lang="postcss">
     main {
-        @apply mt-28 mx-auto sm:w-3/4 max-w-4xl;
+        @apply mt-28 mx-auto sm:w-3/4 max-w-6xl;
     }
 </style>
