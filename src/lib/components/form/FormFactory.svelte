@@ -89,7 +89,7 @@
             <div class="step mt-8">
                 <h2 class="text-2xl mb-4 border-b border-gray-600 pb-2">{step.title}</h2>
 
-                <div class={step.elements.length > 1 ? "grid ss sm:grid-cols-2 md:grid-cols-3 gap-4" : ""}>
+                <div class={step.elements.length > 1 || (step.elements.length === 1 && step.elements[0].type === "multiselect") ? "grid ss sm:grid-cols-2 md:grid-cols-3 gap-4" : ""}>
                     {#each step.elements as element}
                         {#if element.type === "select"}
                             <Select label="{element.label}" bind:items="{element.options}"/>
