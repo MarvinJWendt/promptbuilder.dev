@@ -1,32 +1,37 @@
 <script>
   import FormFactory from "$lib/components/form/FormFactory.svelte";
+  import Categories from "$lib/components/Categories.svelte";
 
   export let data
   $: console.log("Data:", data)
 
-  let pathData = data.pathData;
+  let categories = data.categories
+  let category = categories.find(c => c.slug === data.category)
+  $: console.log("Category", category)
+
+  let path = category.paths.find(p => p.slug === data.path)
+  $: console.log("Path", path)
+
 </script>
 
 <svelte:head>
-    <title>Prompt Builder | {pathData.description}</title>
+    <title>{path.description}</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col items-center text-white">
     <div class="text-sm breadcrumbs">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/#{data.category}">{data.category}</a></li>
+            <li><a href="/">Categories</a></li>
+            <li><a href="/{data.category}">{data.category}</a></li>
             <li>{data.path.toLowerCase().replaceAll("-", " ")}</li>
         </ul>
     </div>
     <div class="w-full">
-        {#if pathData}
-            <FormFactory pathData="{pathData}"/>
-        {:else}
-            <div class="h-screen flex flex-col items-center justify-center">
-                <h2 class="text-2xl mb-4">Loading...</h2>
-                <progress class="progress w-56 h-2"></progress>
-            </div>
-        {/if}
+        <FormFactory pathData="{path}"/>
     </div>
+
+    {#if category.paths.length > 1}
+        <div class="divider mt-16">Other {data.category} prompts</div>
+        <Categories data="{category.paths}" exclude="{data.path}" isPath="true"/>
+    {/if}
 </div>

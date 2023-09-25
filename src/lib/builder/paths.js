@@ -4,6 +4,8 @@ import yaml from 'js-yaml';
 
 let getPathsCache = null;
 
+// ... other imports
+
 export async function getPaths() {
   if (getPathsCache !== null) {
     return getPathsCache;
@@ -16,16 +18,40 @@ export async function getPaths() {
 
   const results = await Promise.all(categories.map(async category => {
     const pathsPath = join(categoriesPath, category);
-    const paths = readdirSync(pathsPath, { withFileTypes: true })
-      .filter(dirent => dirent.isFile() && extname(dirent.name) === '.yaml')
-      .map(dirent => basename(dirent.name, '.yaml'));
 
-    return { name: category, paths };
+    // Load category metadata
+    const categoryMetaPath = join(pathsPath, '_meta.yaml');
+    const categoryMetaContents = readFileSync(categoryMetaPath, 'utf-8');
+    const categoryMeta = yaml.load(categoryMetaContents);
+
+    // Add slug to category metadata
+    categoryMeta.slug = category;
+
+    // Load paths and their metadata
+    const paths = [];
+    const files = readdirSync(pathsPath, { withFileTypes: true })
+      .filter(dirent => dirent.isFile() && extname(dirent.name) === '.yaml' && dirent.name !== '_meta.yaml');
+
+    for (const file of files) {
+      const fileName = basename(file.name, '.yaml');
+      const filePath = join(pathsPath, file.name);
+      const fileContents = readFileSync(filePath, 'utf-8');
+      const fileMeta = yaml.load(fileContents);
+      fileMeta.slug = fileName; // Add slug to path metadata
+      fileMeta.categorySlug = categoryMeta.slug; // Add categorySlug to path metadata
+      paths.push(fileMeta);
+    }
+
+    return {
+      ...categoryMeta,
+      paths
+    };
   }));
 
   getPathsCache = results;
   return results;
 }
+
 
 let getPathDataCache = null;
 
@@ -44,7 +70,7 @@ function initializeCache() {
   for (const category of categories) {
     const categoryDir = join(pathsDir, category);
     const files = readdirSync(categoryDir, { withFileTypes: true })
-      .filter(dirent => dirent.isFile() && extname(dirent.name) === '.yaml');
+      .filter(dirent => dirent.isFile() && dirent.name !== "_meta.yaml" && extname(dirent.name) === '.yaml');
 
     for (const file of files) {
       const fileName = basename(file.name, '.yaml');

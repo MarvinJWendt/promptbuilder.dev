@@ -1,4 +1,4 @@
-name: Summarize text
+name: 📝 Summarize text
 description: Summarize text with different levels of detail
 steps:
     - title: Style

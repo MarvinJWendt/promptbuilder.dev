@@ -82,8 +82,10 @@
 
 <div class="min-h-screen flex mb-12 mx-auto">
     <div class="text-white w-full">
-        <h1 class="text-5xl mb-2 font-bold">{pathData.name}</h1>
-        <p class="text-xl mb-6 text-gray-400">{pathData.description}</p>
+        <div class="flex flex-col items-center text-white">
+            <h1 class="text-5xl mb-2 font-bold">{pathData.name}</h1>
+            <p class="text-xl mb-6 text-gray-400">{pathData.description}</p>
+        </div>
 
         {#each pathData.steps as step}
             <div class="step mt-8">

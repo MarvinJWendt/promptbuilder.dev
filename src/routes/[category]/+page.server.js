@@ -1,6 +1,9 @@
-import { redirect } from '@sveltejs/kit';
+import {getPaths} from "$lib/builder/paths.js";
 
-/** @type {import('./$types').LayoutServerLoad} */
-export function load({ params  }) {
-  throw redirect(307, `/#${params.category}`);
+/** @type {import('./$types').PageLoad} */
+export async function load({ params }) {
+  return {
+    categories: await getPaths(),
+    slug: params.category,
+  }
 }
