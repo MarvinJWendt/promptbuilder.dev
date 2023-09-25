@@ -1,17 +1,20 @@
 import {getPaths} from "$lib/builder/paths.js";
 
 export async function GET() {
-  const paths = [
+  const urls = [
     "https://promptbuilder.dev/",
   ]
 
   // Get all paths
-  let tmp = await getPaths();
-  tmp = tmp.map(category => category.paths.map(path => `https://promptbuilder.dev/${category.name}/${path}`)).flat()
-  paths.push(...tmp);
+  let categories = await getPaths();
+  for (let category of categories) {
+    urls.push(`https://promptbuilder.dev/${category.slug}`);
+    for (let path of category.paths) {
+      urls.push(`https://promptbuilder.dev/${category.slug}/${path.slug}`);
+    }
+  }
 
-  // Generate sitemap
-  const sitemap = generateSitemap(paths);
+  const sitemap = generateSitemap(urls);
 
   return new Response(sitemap,
     {
@@ -21,14 +24,14 @@ export async function GET() {
     })
 }
 
-function generateSitemap(paths) {
+function generateSitemap(urls) {
   return `<?xml version="1.0" encoding="UTF-8"?>
   <urlset
     xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9
     https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    ${paths
+    ${urls
     .map(
       path => `
         <url>
