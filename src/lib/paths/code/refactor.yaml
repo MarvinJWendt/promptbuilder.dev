@@ -1,5 +1,5 @@
 name: ♻️ Refactor code
-description: Refactor code to improve performance, readability, security, and/or size
+description: Common code refactoring tasks
 steps:
   - title: Additional options
     elements:

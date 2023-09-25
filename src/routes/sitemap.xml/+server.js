@@ -3,6 +3,8 @@ import {getPaths} from "$lib/builder/paths.js";
 export async function GET() {
   const urls = [
     "https://promptbuilder.dev/",
+    "https://promptbuilder.dev/tos",
+    "https://promptbuilder.dev/privacy",
   ]
 
   // Get all paths

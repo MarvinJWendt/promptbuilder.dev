@@ -24,9 +24,11 @@
     prompt = "This prompt was generated using a builder. " +
       "I will now give you requirements that the user has specified. " +
       "Your job is to follow them strictly.\n\n" +
-      `Your task is: "${pathData.name}"\n\n`
+      `Your task is: "${pathData.description}"\n\n`
 
     for (let step of pathData.steps) {
+      let stepPrompt = "# " + step.title + "\n"
+
       for (let element of step.elements) {
         let tmpl = element.prompt
 
@@ -46,8 +48,10 @@
           tmpl = tmpl.replaceAll("{{value}}", element.value)
         }
 
-        prompt += tmpl + "\n"
+        stepPrompt += tmpl + "\n"
       }
+
+      prompt += stepPrompt + "\n"
     }
   }
 

@@ -6,4 +6,8 @@
     <div>
         <p>Copyright © 2023 by <a href="https://twitter.com/MarvinJWendt">Marvin Wendt</a></p>
     </div>
+    <div class="grid grid-flow-col gap-4">
+        <a href="/tos" class="link link-hover">Terms of Service</a>
+        <a href="/privacy" class="link link-hover">Privacy Policy</a>
+    </div>
 </footer>

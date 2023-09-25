@@ -1,5 +1,5 @@
-name: ✖️ Write a Tweet
-description: Write a tweet about a specific topic
+name: 🕊️ Generate a tweet
+description: Generate a tweet or thread about a specific topic
 steps:
   - title: Tweet Style
     elements:

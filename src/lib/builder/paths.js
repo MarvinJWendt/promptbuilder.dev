@@ -1,18 +1,22 @@
-import { readdirSync, readFileSync } from 'fs';
-import { join, extname, basename } from 'path';
+import {readdirSync, readFileSync} from 'fs';
+import {join, extname, basename} from 'path';
 import yaml from 'js-yaml';
 
 let getPathsCache = null;
 
-// ... other imports
+let production = process.env.NODE_ENV === 'production';
+console.log("Use Cached files: " + production);
 
 export async function getPaths() {
   if (getPathsCache !== null) {
+    console.log("Using cached paths")
     return getPathsCache;
+  } else {
+    console.log("Cache not found, loading paths")
   }
 
   const categoriesPath = join(process.cwd(), './src/lib/paths');
-  const categories = readdirSync(categoriesPath, { withFileTypes: true })
+  const categories = readdirSync(categoriesPath, {withFileTypes: true})
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
 
@@ -29,7 +33,7 @@ export async function getPaths() {
 
     // Load paths and their metadata
     const paths = [];
-    const files = readdirSync(pathsPath, { withFileTypes: true })
+    const files = readdirSync(pathsPath, {withFileTypes: true})
       .filter(dirent => dirent.isFile() && extname(dirent.name) === '.yaml' && dirent.name !== '_meta.yaml');
 
     for (const file of files) {
@@ -48,20 +52,18 @@ export async function getPaths() {
     };
   }));
 
-  getPathsCache = results;
+  if (production) {
+    getPathsCache = results;
+  }
   return results;
 }
 
 
 let getPathDataCache = null;
 
-// If node env is production, usePathDataCache is true
-let usePathDataCache = process.env.NODE_ENV === 'production';
-console.log("Use Cached files: " + usePathDataCache);
-
 function initializeCache() {
   const pathsDir = join(process.cwd(), './src/lib/paths');
-  const categories = readdirSync(pathsDir, { withFileTypes: true })
+  const categories = readdirSync(pathsDir, {withFileTypes: true})
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);
 
@@ -69,7 +71,7 @@ function initializeCache() {
 
   for (const category of categories) {
     const categoryDir = join(pathsDir, category);
-    const files = readdirSync(categoryDir, { withFileTypes: true })
+    const files = readdirSync(categoryDir, {withFileTypes: true})
       .filter(dirent => dirent.isFile() && dirent.name !== "_meta.yaml" && extname(dirent.name) === '.yaml');
 
     for (const file of files) {
@@ -88,7 +90,7 @@ function initializeCache() {
 }
 
 export function getPathData(category, path) {
-  if (!getPathDataCache || !usePathDataCache) {
+  if (!getPathDataCache || !production) {
     initializeCache();
   }
 

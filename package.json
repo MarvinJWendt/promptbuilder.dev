@@ -22,6 +22,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@tailwindcss/typography": "^0.5.10",
+		"chokidar": "^3.5.3",
 		"js-yaml": "^4.1.0"
 	}
 }

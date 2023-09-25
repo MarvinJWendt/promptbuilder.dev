@@ -15,7 +15,8 @@
 </script>
 
 <svelte:head>
-    <title>{path.description}</title>
+    <title>Prompt builder: {path.name.replaceAll("-", " ")}</title>
+    <meta name="description" content="{path.description} using ChatGPT">
 </svelte:head>
 
 <div class="min-h-screen flex flex-col items-center text-white">
