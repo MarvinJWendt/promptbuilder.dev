@@ -1,12 +1,18 @@
-FROM node:18-alpine AS builder
+FROM node:20-slim AS builder
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 WORKDIR /app
 COPY package*.json .
-RUN npm ci
+RUN pnpm i
 COPY . .
-RUN npm run build
-RUN npm prune --production
+RUN pnpm build
+RUN pnpm prune --production
 
-FROM node:18-alpine
+FROM node:20-slim
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 WORKDIR /app
 COPY --from=builder /app/build build/
 COPY --from=builder /app/src src/
@@ -14,4 +20,4 @@ COPY --from=builder /app/node_modules node_modules/
 COPY package.json .
 EXPOSE 3000
 ENV NODE_ENV=production
-CMD [ "node", "build" ]
+CMD [ "pnpm", "build" ]
