@@ -16,3 +16,6 @@ node_modules
 build
 package
 **/.env
+
+# Testing Category
+src/lib/paths/a-testing/

@@ -13,13 +13,11 @@
   let category = categories.find(c => c.slug === slug);
   $: console.log("Category", category);
 
-  let paths = category.paths
-
   const numCols = 3;
   let sortedPaths = Array.from({length: numCols}, () => []);
 
-  for (let i = 0; i < paths.length; i++) {
-    sortedPaths[i % numCols].push(paths[i]);
+  for (let i = 0; i < category.paths.length; i++) {
+    sortedPaths[i % numCols].push(category.paths[i]);
   }
 
   onMount(() => {
@@ -44,7 +42,7 @@
     <h1 class="text-5xl font-bold pt-14">{category.name.replace(/^.*? /, '')} Prompts️</h1>
     <p class="text-xl">{category.description}</p>
     <div class="mt-8 w-full">
-        <Categories data={paths} isPath="true"/>
+        <Categories data={category.paths} isPath="true"/>
     </div>
 
 <!--    <h2 class="mt-48">Other Categories</h2>-->
