@@ -5,6 +5,7 @@
 
 <script>
   import Categories from "$lib/components/Categories.svelte";
+  import FAQ from "$lib/components/FAQ.svelte";
 
   export let data;
   let categories = data.categories;
@@ -22,4 +23,6 @@
     </div>
     <h2 class="pt-8">Categories</h2>
     <Categories data={categories}/>
+    <div class="mt-16"></div>
+    <FAQ />
 </div>
