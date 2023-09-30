@@ -17,7 +17,7 @@ export default defineConfig({
           description: "Prompt Builder is a free library and builder for ChatGPT prompts.",
           lang: "en",
           display: "standalone",
-          start_url: "/",
+          start_url: "https://promptbuilder.dev",
           scope: "/",
           theme_color: "#0e1728",
           background_color: "#0e1728",
