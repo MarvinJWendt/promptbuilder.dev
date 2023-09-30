@@ -1,7 +1,8 @@
 <script>
-  import "../app.css";
+  import "../app.scss";
   import Navbar from "$lib/components/Navbar.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import {onMount} from "svelte";
 
   export let data
 </script>

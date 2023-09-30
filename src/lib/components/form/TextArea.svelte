@@ -11,5 +11,5 @@
     {#if label}
         <label for="{id}" class="block text-gray-400 text-sm">{label}</label>
     {/if}
-    <textarea id="{id}" wrap="hard" rows="5" bind:value={text} class="textarea textarea-bordered dark:bg-gray-800 w-full w-full"></textarea>
+    <textarea id="{id}" wrap="hard" rows="5" bind:value={text} class="textarea textarea-bordered w-full bg-white dark:bg-gray-800"></textarea>
 </div>

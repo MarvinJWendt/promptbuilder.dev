@@ -85,8 +85,8 @@
 </script>
 
 <div class="min-h-screen flex mb-12 mx-auto">
-    <div class="text-white w-full">
-        <div class="flex flex-col items-center text-white">
+    <div class="w-full">
+        <div class="flex flex-col items-center">
             <h1 class="text-5xl mb-2 font-bold">{pathData.name}</h1>
             <p class="text-xl mb-6 text-gray-400">{pathData.description}</p>
         </div>
@@ -121,15 +121,15 @@
 
         <h1 class="text-3xl mb-2 mt-8">Prompt</h1>
         <div class="border-t border-gray-700 pt-6">
-            <div class="relative bg-gray-700 rounded p-4 shadow-lg">
+            <div class="relative bg-white dark:bg-gray-800 rounded p-4 shadow-lg">
                 <button
-                        class="float-right btn hover:bg-blue-600 text-white rounded"
+                        class="float-right btn hover:bg-blue-600 rounded"
                         on:click={copyToClipboard}
                 >
                     Copy
                 </button>
-                <pre class="text-white overflow-x-auto mb-0">{promptA}</pre>
-                <pre class="text-white overflow-x-auto mb-0">{promptB}</pre>
+                <pre class="overflow-x-auto mb-0">{promptA}</pre>
+                <pre class="overflow-x-auto mb-0">{promptB}</pre>
             </div>
         </div>
 

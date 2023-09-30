@@ -11,5 +11,5 @@
     {#if label}
         <label for="{id}" class="block text-gray-400 text-sm">{label}</label>
     {/if}
-    <input type="text" bind:value={text} class="input input-bordered dark:bg-gray-800" />
+    <input type="text" bind:value={text} class="input input-bordered" />
 </div>

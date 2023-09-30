@@ -11,7 +11,7 @@
 
 <div class="flex flex-col gap-2">
     {#if label}
-        <label for="{id}" class="block text-gray-400 text-sm">{label}</label>
+        <label for="{id}" class="block text-sm">{label}</label>
     {/if}
-    <input id="{id}" type="number" bind:value={value} min={min} max={max} class="input input-bordered dark:bg-gray-800"/>
+    <input id="{id}" type="number" bind:value={value} min={min} max={max} class="input input-bordered"/>
 </div>

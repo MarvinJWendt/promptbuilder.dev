@@ -32,7 +32,7 @@
   });
 </script>
 
-<div class="min-h-screen flex flex-col items-center text-white">
+<div class="min-h-screen flex flex-col items-center">
     <div class="text-sm breadcrumbs">
         <ul>
             <li><a href="/">Categories</a></li>

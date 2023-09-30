@@ -1,4 +1,4 @@
-<footer class="footer footer-center p-4 bg-base-200 text-base-content rounded gap-3">
+<footer class="footer footer-center p-4 bg-white dark:bg-base-200 text-base-content rounded gap-3">
     <div class="grid grid-flow-col gap-4">
         <a href="https://marvinjwendt.com" class="link link-hover">Contact</a>
         <a href="https://marvinjwendt.com/donate" class="link link-hover">Donate</a>

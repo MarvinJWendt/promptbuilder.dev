@@ -26,7 +26,7 @@
     {#if label}
         <label for="{id}" class="block text-gray-400 text-sm">{label}</label>
     {/if}
-    <select id="{id}" bind:value={selectedItem} class="select select-bordered w-full dark:bg-gray-800">
+    <select id="{id}" bind:value={selectedItem} class="select select-bordered w-full bg-white dark:bg-gray-800">
         {#each items as item (item)}
             <option value={item.value}>{item.value}</option>
         {/each}
