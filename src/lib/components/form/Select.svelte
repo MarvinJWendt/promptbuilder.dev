@@ -1,8 +1,11 @@
 <script>
   import {onMount} from "svelte";
+  import {randomId} from "$lib/utils.js";
 
   export let label = "";
   export let items = [];
+
+  const id = randomId()
 
   onMount(() => {
     if (items.length > 0) {
@@ -21,9 +24,9 @@
 
 <div class="flex flex-col gap-2 w-full">
     {#if label}
-        <label class="block text-gray-400 text-sm">{label}</label>
+        <label for="{id}" class="block text-gray-400 text-sm">{label}</label>
     {/if}
-    <select bind:value={selectedItem} class="select select-bordered w-full dark:bg-gray-800">
+    <select id="{id}" bind:value={selectedItem} class="select select-bordered w-full dark:bg-gray-800">
         {#each items as item (item)}
             <option value={item.value}>{item.value}</option>
         {/each}

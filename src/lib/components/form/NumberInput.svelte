@@ -1,13 +1,17 @@
 <script>
+  import {randomId} from "$lib/utils.js";
+
   export let label = "";
   export let min = 0;
   export let max = 100;
   export let value = min;
+
+  const id = randomId()
 </script>
 
 <div class="flex flex-col gap-2">
     {#if label}
-        <label class="block text-gray-400 text-sm">{label}</label>
+        <label for="{id}" class="block text-gray-400 text-sm">{label}</label>
     {/if}
-    <input type="number" bind:value={value} min={min} max={max} class="input input-bordered dark:bg-gray-800"/>
+    <input id="{id}" type="number" bind:value={value} min={min} max={max} class="input input-bordered dark:bg-gray-800"/>
 </div>
