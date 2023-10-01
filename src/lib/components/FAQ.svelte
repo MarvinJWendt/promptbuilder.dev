@@ -26,7 +26,7 @@
 <section class="join join-vertical w-full">
     <h2>FAQ</h2>
     {#each faq as {q, a}}
-        <div class="collapse collapse-arrow join-item border border-base-300">
+        <div class="collapse collapse-arrow join-item border border-base-300 bg-base-100">
             <input type="radio" name="my-accordion" />
             <div class="collapse-title text-xl font-medium">
                 {q}

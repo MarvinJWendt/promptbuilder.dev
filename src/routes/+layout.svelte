@@ -2,17 +2,18 @@
   import "../app.scss";
   import Navbar from "$lib/components/Navbar.svelte";
   import Footer from "$lib/components/Footer.svelte";
-  import {onMount} from "svelte";
 
   export let data
 </script>
 
 <svelte:head>
     <title>Prompt Builder</title>
+    <script src="/assets/js/particles.min.js"></script>
 </svelte:head>
 
 {#key data.pathname}
-    <main>
+    <div id="particles" class="absolute left-0 top-0 w-full -z-10"></div>
+    <main class="z-20">
         <Navbar/>
         <article class="m-8">
             <slot/>
