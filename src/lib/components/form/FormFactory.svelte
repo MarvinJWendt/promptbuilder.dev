@@ -21,10 +21,10 @@
   $: promptB = prompt.split("\n").slice(3).join("\n");
 
   function renderPrompt() {
-    prompt = "This prompt was generated using a builder. " +
+    prompt = "This prompt was generated using https://promptbuilder.dev. " +
       "I will now give you requirements that the user has specified. " +
       "Your job is to follow them strictly.\n\n" +
-      `Your task is: "${pathData.description}"\n\n`
+      `Your task is: "${pathData.task ? pathData.task : pathData.description}"\n\n`
 
     for (let step of pathData.steps) {
       let stepPrompt = "# " + step.title + "\n"
@@ -34,7 +34,17 @@
 
         if (element.type === "multiselect") {
           // Map the values to their selected state
-          let values = element.options.map(o => o.selected ? o.active : o.inactive ? o.inactive : "")
+          let values = element.options.map(o => {
+            if (o.selected) {
+              return o.active ? o.active : o.value
+            } else {
+              if (o.inactive) {
+                return o.inactive
+              } else {
+                return ""
+              }
+            }
+          })
           // Remove empty values
           values = values.filter(v => v !== "")
           values = values.map(v => "- " + v)
@@ -42,7 +52,7 @@
         } else if (element.type === "select") {
           let selectedElement = element.options.find(o => o.selected)
           tmpl = tmpl.replaceAll("{{value}}", selectedElement.active ? selectedElement.active : selectedElement.value)
-        } else if (element.type === "textarea") {
+        } else if (element.type === "textarea" || element.type === "text") { // Replace with inactive value if no value is selected
           tmpl = tmpl.replaceAll("{{value}}", element.inactive && !element.value ? element.inactive : element.value)
         } else {
           tmpl = tmpl.replaceAll("{{value}}", element.value)
@@ -84,13 +94,8 @@
   }
 </script>
 
-<div class="min-h-screen flex mb-12 mx-auto">
+<div class="flex mx-auto">
     <div class="w-full">
-        <div class="flex flex-col items-center">
-            <h1 class="text-3xl sm:text-5xl mb-2 font-bold">{pathData.name}</h1>
-            <p class="text-xl mb-6 text-gray-400">{pathData.description}</p>
-        </div>
-
         {#each pathData.steps as step}
             <div class="step mt-8">
                 <h2 class="text-2xl mb-4 border-b border-gray-600 pb-2">{step.title}</h2>
@@ -121,7 +126,7 @@
 
         <h1 class="text-3xl mb-2 mt-8">Prompt</h1>
         <div class="border-t border-gray-700 pt-6">
-            <div class="relative bg-white dark:bg-gray-800 rounded p-4 shadow-lg">
+            <div class="bg-white dark:bg-gray-800 rounded p-4 shadow-lg">
                 <button
                         class="float-right btn hover:bg-blue-600 rounded"
                         on:click={copyToClipboard}

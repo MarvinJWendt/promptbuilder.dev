@@ -1,0 +1,72 @@
+name: 🔎 Optimize SEO
+description: Optimize text for search engines
+task: Optimize the SEO score of the input text. Your goal is to make the text more search engine friendly and to improve the search result ranking.
+long: |-
+  This prompt rewrites your texts to make them more search engine friendly.
+  You can configure keywords and other settings.
+
+steps:
+  - title: Keywords
+    elements:
+      - type: text
+        label: Important keywords to include
+        inactive: No specific keywords selected. Use fitting keywords to improve the SEO score.
+        prompt: "Keywords: {{value}}"
+  - title: Settings
+    elements:
+      - type: select
+        label: Tone
+        options:
+          - value: As input text
+            active: The tone should be the same as in the input text.
+            selected: true
+          - value: Formal
+            active: Reply with formal text only.
+          - value: Informal
+            active: Reply with informal text only.
+        prompt: 'Tone: {{value}}'
+      - type: select
+        label: Output format
+        options:
+          - value: Plain
+            active: Reply with plain text only.
+            selected: true
+          - value: HTML
+            active: You can style the text with HTML tags.
+          - value: Markdown
+            active: You can style the text with Markdown tags.
+          - value: BBCode
+            active: You can style the text with BBCode tags.
+          - value: Wiki
+            active: You can style the text with Wiki tags.
+          - value: LaTeX
+            active: You can style the text with LaTeX tags.
+        prompt: 'Output format: {{value}}'
+      - type: select
+        label: Keyword density
+        options:
+          - value: Use the keywords a few times
+          - value: Use the keywords where they fit
+            active: Use the keywords where they fit. Do not overuse them.
+            selected: true
+          - value: Use the keywords as often as possible
+        prompt: 'Keyword density: {{value}}'
+      - type: multiselect
+        options:
+          - value: First keyword is the most important
+            selected: false
+          - value: Include all keywords
+            selected: true
+          - value: Make the text sound natural
+            active: Make the text sound natural. Do not use a lot of buzzwords. Make it sound human written.
+            selected: true
+        prompt: "Selected options: {{value}}"
+  - title: Input Text
+    elements:
+      - label: Text
+        type: textarea
+        value: ''
+        prompt: |2-
+          Optimize the following text for search engines:
+            
+          {{value}}

@@ -21,9 +21,9 @@
     {#each sortedData as col}
         <div>
             {#each col as data}
-                <a href="/{isPath ? data.categorySlug + '/' + data.slug : data.slug}" id="{data.slug}" class="card card-compact mt-4 bg-white dark:bg-base-200 card-bordered border-1 border-black dark:border-gray-800 shadow-md">
+                <a href="/{isPath ? data.categorySlug + '/' + data.slug : data.slug}" id="{data.slug}" class="card static card-compact mt-4 bg-white dark:bg-base-200 card-bordered border-1 border-black dark:border-gray-800 shadow-md">
                     <div class="card-body">
-                        <h2 class="card-title mt-1">{data.name}</h2>
+                        <h2 class="card-title mt-1">{data.name}<span class="text-sm text-gray-400">{isPath ? '' : `(${data.paths.length})`}</span></h2>
                         <p>{data.description}</p>
                         <div class="card-actions justify-end">
                         </div>

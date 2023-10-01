@@ -2,6 +2,7 @@
   import "../app.scss";
   import Navbar from "$lib/components/Navbar.svelte";
   import Footer from "$lib/components/Footer.svelte";
+  import Sidebar from "$lib/components/Sidebar.svelte";
 
   export let data
 </script>
@@ -13,7 +14,7 @@
 
 {#key data.pathname}
     <div id="particles" class="absolute left-0 top-0 w-full -z-10"></div>
-    <main class="z-20">
+    <main class="min-h-screen">
         <Navbar/>
         <article class="m-8">
             <slot/>

@@ -1,5 +1,6 @@
 name: ♻️ Refactor code
 description: Common code refactoring tasks
+
 steps:
   - title: Additional options
     elements:
