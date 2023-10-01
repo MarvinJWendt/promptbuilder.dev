@@ -87,7 +87,7 @@
 <div class="min-h-screen flex mb-12 mx-auto">
     <div class="w-full">
         <div class="flex flex-col items-center">
-            <h1 class="text-5xl mb-2 font-bold">{pathData.name}</h1>
+            <h1 class="text-3xl sm:text-5xl mb-2 font-bold">{pathData.name}</h1>
             <p class="text-xl mb-6 text-gray-400">{pathData.description}</p>
         </div>
 

@@ -11,7 +11,6 @@
 
   let path = category.paths.find(p => p.slug === data.path)
   $: console.log("Path", path)
-
 </script>
 
 <svelte:head>
@@ -20,13 +19,6 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col items-center">
-    <div class="text-sm breadcrumbs">
-        <ul>
-            <li><a href="/">Categories</a></li>
-            <li><a href="/{data.category}">{data.category}</a></li>
-            <li>{data.path.toLowerCase().replaceAll("-", " ")}</li>
-        </ul>
-    </div>
     <div class="w-full">
         <FormFactory pathData="{path}"/>
     </div>

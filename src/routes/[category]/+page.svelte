@@ -33,12 +33,6 @@
 </script>
 
 <div class="min-h-screen flex flex-col items-center">
-    <div class="text-sm breadcrumbs">
-        <ul>
-            <li><a href="/">Categories</a></li>
-            <li><a href="/{category.slug}">{category.slug}</a></li>
-        </ul>
-    </div>
     <h1 class="text-5xl font-bold pt-14">{category.name.replace(/^.*? /, '')} Prompts️</h1>
     <p class="text-xl">{category.description}</p>
     <div class="mt-8 w-full">

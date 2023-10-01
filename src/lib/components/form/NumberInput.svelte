@@ -13,5 +13,5 @@
     {#if label}
         <label for="{id}" class="block text-sm">{label}</label>
     {/if}
-    <input id="{id}" type="number" bind:value={value} min={min} max={max} class="input input-bordered"/>
+    <input id="{id}" type="number" bind:value={value} min={min} max={max} class="input input-bordered bg-white dark:bg-gray-800"/>
 </div>
