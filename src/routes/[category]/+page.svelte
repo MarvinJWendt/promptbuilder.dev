@@ -33,12 +33,12 @@
 </script>
 
 <div class="min-h-screen flex flex-col items-center">
-    <h1 class="text-5xl font-bold pt-14">{category.name.replace(/^.*? /, '')} Prompts️</h1>
+    <h1 class="text-3xl sm:text-5xl font-bold pt-14">{category.name.replace(/^.*? /, '')} Prompts️</h1>
     <p class="text-xl">{category.description}</p>
     <div class="mt-8 w-full">
         <Categories data={category.paths} isPath="true"/>
     </div>
 
-<!--    <h2 class="mt-48">Other Categories</h2>-->
-<!--    <Categories data={categories}/>-->
+    <h2 class="mt-48 text-3xl sm:text-4xl">Other Categories</h2>
+    <Categories data={categories} exclude="{category.slug}"/>
 </div>
