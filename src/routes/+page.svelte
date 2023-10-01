@@ -13,7 +13,7 @@
 
 <div class="min-h-screen">
     <div class="flex flex-col items-center">
-        <h1 class="text-5xl font-bold pt-14">🛠️ Prompt Builder</h1>
+        <h1 class="text-3xl sm:text-5xl font-bold pt-14">🛠️ Prompt Builder</h1>
         <p class="text-xl">No need to study prompt engineering</p>
         <br/>
         <br/>
