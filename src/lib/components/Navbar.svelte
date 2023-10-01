@@ -21,6 +21,14 @@
       });
     });
 
+    // Hide burger menu when sidebar is not visible
+    let sidebar = document.querySelector("#my-drawer-2");
+    if (!sidebar) {
+      // Hide label
+      let label = document.querySelector("#burger-menu");
+      label.style.display = "none"
+    }
+
     // Update variable to trigger reactivity
     breadcrumbs = breadcrumbs;
   });
@@ -41,7 +49,7 @@
     <div class="navbar absolute top-0 left-0 bg-base-200/50 w-full"></div>
     <nav class="navbar absolute top-0 sm:w-3/4 max-w-6xl flex">
         <div class="navbar-start">
-            <div class="flex-none xl:hidden">
+            <div id="burger-menu" class="flex-none xl:hidden">
                 <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                          class="inline-block w-6 h-6 stroke-current">
