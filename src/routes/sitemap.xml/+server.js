@@ -1,4 +1,4 @@
-import {getPaths} from "$lib/builder/paths.js";
+import {getCategories} from "$lib/builder/paths.js";
 
 export async function GET() {
   const urls = [
@@ -8,7 +8,7 @@ export async function GET() {
   ]
 
   // Get all paths
-  let categories = await getPaths();
+  let categories = await getCategories();
   for (let category of categories) {
     urls.push(`https://promptbuilder.dev/${category.slug}`);
     for (let path of category.paths) {

@@ -7,7 +7,7 @@ let getPathsCache = null;
 let production = process.env.NODE_ENV === 'production';
 console.log("Use Cached files: " + production);
 
-export async function getPaths() {
+export async function getCategories() {
   if (getPathsCache !== null) {
     console.log("Using cached paths")
     return getPathsCache;
