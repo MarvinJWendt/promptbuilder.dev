@@ -136,12 +136,12 @@
     }
   }
 
-  // Render prompt 10 times per second.
+  // Render prompt 20 times per second.
   // Reactivity is lost somwhere in the process of rendering the elements.
   onMount(() => {
     setInterval(() => {
       renderPrompt()
-    }, 100)
+    }, 50)
   })
 </script>
 
