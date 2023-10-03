@@ -49,6 +49,16 @@
   prompt: "Value: {{value}}"
 ```
 
+### Toggle
+
+```yaml
+- type: toggle
+  value: Value
+  active: Replaces value when toggled on
+  inactive: Replaces value when toggled off
+  prompt: 'Value: {{value}}'
+```
+
 ### Multiselect
 
 ```yaml

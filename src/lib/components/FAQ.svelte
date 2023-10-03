@@ -10,7 +10,7 @@
       },
       {
         q: 'Which AI models are supported?',
-        a: `Promptbuilder.dev is not limited to any specific AI models. The prompts are crafted and tested for <a class="link" target="_blank" href="https://chat.openai.com/">ChatGPT</a> (GPT-3 and GPT-4), but can be used with any AI model, altough the results may vary.`
+        a: `Promptbuilder.dev is not limited to any specific AI models. The prompts are crafted and tested for <a class="link" target="_blank" href="https://chat.openai.com/">ChatGPT</a> (GPT-3 and GPT-4), but can be used with any AI model, although the results may vary.`
       },
       {
         q: "Do I need to attribute generated content to promptbuilder.dev?",

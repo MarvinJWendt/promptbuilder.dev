@@ -1,0 +1,78 @@
+name: 🛒 Product Review
+description: Write a product review
+long: |-
+  This prompt generates a product review with your pro and con arguments.
+task: Write a product review. Your goal is to write a review that sounds like a real person wrote it. Use the rating to decide whether to prioritize the pro or con arguments. Write fluently and naturally.
+
+steps:
+  - title: Settings
+    elements:
+      - type: text
+        label: Language
+        inactive: Use the same language as the pro and con arguments
+        prompt: "Language: {{value}}"
+      - type: select
+        label: Style
+        options:
+          - value: Formal / Professional
+            active: Reply with formal text only. The product review should sound like a professional wrote it.
+          - value: Informal
+            selected: true
+            active: Reply with informal text. The product review should sound like an average person wrote it.
+        prompt: 'Style: {{value}}'
+      - type: select
+        label: Length
+        options:
+          - value: Short
+            selected: true
+            active: Write a short product review.
+          - value: Medium
+            active: Write a medium-length product review.
+          - value: Long
+            active: Write a long product review.
+        prompt: 'Length: {{value}}'
+      - type: multiselect
+        options:
+        - value: Include the product name
+          selected: true
+        - value: Include the model or version
+          active: Include the model or version of the product, if given.
+          selected: true
+        - value: Include the pro arguments
+          selected: true
+        - value: Include the con arguments
+          selected: true
+        prompt: 'Options: {{value}}'
+  - title: Product details
+    elements:
+      - type: text
+        label: Product name
+        inactive: No product name specified.
+        prompt: "Product name: {{value}}"
+      - type: text
+        label: Model or version
+        inactive: No specific model or version specified.
+        prompt: "Model or version: {{value}}"
+  - title: Review
+    elements:
+      - type: number
+        label: Rating
+        inactive: No rating specified.
+        min: 1
+        max: 5
+        value: 3
+        prompt: "Rating: {{value}} out of 5"
+      - type: toggle
+        value: Include the rating in the text
+        active: Include the rating in the text.
+        inactive: Do not include the rating in the text. The rating is only used to decide whether to prioritize the pro or con arguments.
+        prompt: 'Include rating: {{value}}'
+      - type: textarea
+        label: Pro arguments
+        inactive: No pro arguments specified.
+        prompt: "Pro arguments:\n{{value}}"
+      - type: textarea
+        label: Con arguments
+        inactive: No con arguments specified.
+        prompt: "\nCon arguments:\n{{value}}"
+

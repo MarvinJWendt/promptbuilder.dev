@@ -4,7 +4,7 @@
   import TextInput from "$lib/components/form/TextInput.svelte";
   import TextArea from "$lib/components/form/TextArea.svelte";
   import NumberInput from "$lib/components/form/NumberInput.svelte";
-  import MultiselectItem from "$lib/components/form/Multiselect.svelte";
+  import MultiselectItem from "$lib/components/form/MultiselectItem.svelte";
   import {onMount} from "svelte";
 
   export let pathData;
@@ -49,6 +49,12 @@
           values = values.filter(v => v !== "")
           values = values.map(v => "- " + v)
           tmpl = tmpl.replaceAll("{{value}}", `\n${values.join("\n")}`)
+        } else if (element.type === "toggle") {
+          if (element.selected) {
+            tmpl = tmpl.replaceAll("{{value}}", element.active ? element.active : element.value)
+          } else {
+            tmpl = tmpl.replaceAll("{{value}}", element.inactive ? element.inactive : "")
+          }
         } else if (element.type === "select") {
           let selectedElement = element.options.find(o => o.selected)
           tmpl = tmpl.replaceAll("{{value}}", selectedElement.active ? selectedElement.active : selectedElement.value)
@@ -139,10 +145,15 @@
                         {:else if element.type === 'number'}
                             <NumberInput label="{element.label}" bind:value="{element.value}" min={element.min}
                                          max={element.max}/>
+                        {:else if element.type === 'toggle'}
+                            <MultiselectItem bind:item="{element}"/>
                         {:else if element.type === 'empty'}
-                            <!--  DO NOTHING  -->
+                            <div></div>
                         {:else}
-                            <p>UNKNOWN</p>
+                            <div class="flex-grow bg-error rounded-2xl flex flex-col justify-center items-center alert-error">
+                                <b>UNKNOWN ELEMENT</b>
+                                <pre><code>{element.type}</code></pre>
+                            </div>
                         {/if}
                     {/each}
                 </div>
