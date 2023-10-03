@@ -4,13 +4,12 @@
   import TextInput from "$lib/components/form/TextInput.svelte";
   import TextArea from "$lib/components/form/TextArea.svelte";
   import NumberInput from "$lib/components/form/NumberInput.svelte";
-  import Multiselect from "$lib/components/form/Multiselect.svelte";
+  import MultiselectItem from "$lib/components/form/Multiselect.svelte";
+  import {onMount} from "svelte";
 
   export let pathData;
   $: console.log("Pathdata update:", pathData)
   export let prompt = "";
-  $: console.log("Prompt update:", prompt)
-  $: pathData && renderPrompt();
 
   // PromptA is the first 3 lines of the prompt
   let promptA = "";
@@ -69,29 +68,30 @@
     const rows = [];
     let currentRow = [];
 
-    for (const element of elements) {
-      if (element.type === 'textarea' || currentRow.length === 3) {
+    for (let i = 0; i < elements.length; i++) {
+      if (elements[i].type === 'textarea' || currentRow.length === 3) {
         if (currentRow.length > 0) {
           rows.push([...currentRow]);
         }
 
-        currentRow = [element];
+        currentRow = [elements[i]];
 
-        if (element.type === 'textarea') {
+        if (elements[i].type === 'textarea') {
           rows.push([...currentRow]);
           currentRow = [];
         }
-      } else if (element.type === 'multiselect') {
-        currentRow.push(element);
-        for (let i = 0; i < element.options.length - 1; i++) {
+      } else if (elements[i].type === 'multiselect') {
+        for (let j = 0; j < elements[i].options.length; j++) {
           if (currentRow.length === 3) {
             rows.push([...currentRow]);
             currentRow = [];
           }
-          currentRow.push({type: 'empty'})
+          const option = elements[i].options[j];
+          option.type = 'multiselectitem';
+          currentRow.push(option);
         }
       } else {
-        currentRow.push(element);
+        currentRow.push(elements[i]);
       }
     }
 
@@ -135,6 +135,14 @@
       }
     }
   }
+
+  // Render prompt 10 times per second.
+  // Reactivity is lost somwhere in the process of rendering the elements.
+  onMount(() => {
+    setInterval(() => {
+      renderPrompt()
+    }, 100)
+  })
 </script>
 
 <div class="flex mx-auto">
@@ -152,8 +160,8 @@
                                 <TextInput label="{element.label}" bind:text="{element.value}"/>
                             {:else if element.type === 'textarea'}
                                 <TextArea label="{element.label}" bind:text="{element.value}"/>
-                            {:else if element.type === 'multiselect'}
-                                <Multiselect bind:items="{element.options}" label="{element.label}"/>
+                            {:else if element.type === 'multiselectitem'}
+                                <MultiselectItem bind:item="{element}"/>
                             {:else if element.type === 'number'}
                                 <NumberInput label="{element.label}" bind:value="{element.value}" min={element.min}
                                              max={element.max}/>

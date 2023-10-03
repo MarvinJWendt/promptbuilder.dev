@@ -1,19 +1,16 @@
 <script>
   import {randomId} from "$lib/utils.js";
 
-  export let items = [];
-
-  const ids = items.map(() => randomId());
+  export let item;
+  const id = randomId()
 </script>
 
-{#each items as item, i}
-    <div class="flex flex-col gap-2 w-full">
-        <label for="{ids[i]}" class="block text-sm"><br></label>
-        <button
-                id="{ids[i]}"
-                class="btn w-full {item.selected ? 'btn-success' : 'btn-error btn-outline'}"
-                on:click={() => {item.selected = !item.selected}}>
-            {item.value}
-        </button>
-    </div>
-{/each}
+<div class="flex flex-col gap-2 w-full">
+    <label for="{id}" class="block text-sm"><br></label>
+    <button
+            id="{id}"
+            class="btn w-full {item.selected ? 'btn-success' : 'btn-error btn-outline'}"
+            on:click={() => {item.selected = !item.selected}}>
+        {item.value}
+    </button>
+</div>
