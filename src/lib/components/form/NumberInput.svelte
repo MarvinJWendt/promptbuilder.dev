@@ -9,7 +9,7 @@
   const id = randomId()
 </script>
 
-<div class="flex flex-col gap-2">
+<div class="flex flex-grow min-w-15% flex-col gap-2">
     {#if label}
         <label for="{id}" class="block text-sm">{label}</label>
     {/if}

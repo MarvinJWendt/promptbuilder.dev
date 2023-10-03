@@ -3,7 +3,12 @@ export default {
   darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      minWidth: {
+        '30%': '30%',
+        '15%': '15%',
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

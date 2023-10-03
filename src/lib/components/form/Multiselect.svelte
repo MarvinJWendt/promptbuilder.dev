@@ -5,7 +5,7 @@
   const id = randomId()
 </script>
 
-<div class="flex flex-col gap-2 w-full">
+<div class="flex flex-grow flex-col gap-2">
     <label for="{id}" class="block text-sm"><br></label>
     <button
             id="{id}"
