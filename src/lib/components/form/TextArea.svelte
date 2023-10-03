@@ -7,7 +7,7 @@
   const id = randomId()
 </script>
 
-<div class="flex flex-col gap-2 w-full">
+<div class="flex flex-col gap-2 w-full col-span-full">
     {#if label}
         <label for="{id}" class="block text-gray-400 text-sm">{label}</label>
     {/if}

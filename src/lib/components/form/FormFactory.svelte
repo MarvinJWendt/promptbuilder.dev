@@ -3,8 +3,8 @@
   import Select from "$lib/components/form/Select.svelte";
   import TextInput from "$lib/components/form/TextInput.svelte";
   import TextArea from "$lib/components/form/TextArea.svelte";
-  import Multiselect from "$lib/components/form/Multiselect.svelte";
   import NumberInput from "$lib/components/form/NumberInput.svelte";
+  import Multiselect from "$lib/components/form/Multiselect.svelte";
 
   export let pathData;
   $: console.log("Pathdata update:", pathData)
@@ -65,6 +65,49 @@
     }
   }
 
+  function processStepElements(elements) {
+    const rows = [];
+    let currentRow = [];
+
+    for (const element of elements) {
+      if (element.type === 'textarea' || currentRow.length === 3) {
+        if (currentRow.length > 0) {
+          rows.push([...currentRow]);
+        }
+
+        currentRow = [element];
+
+        if (element.type === 'textarea') {
+          rows.push([...currentRow]);
+          currentRow = [];
+        }
+      } else if (element.type === 'multiselect') {
+        currentRow.push(element);
+        for (let i = 0; i < element.options.length - 1; i++) {
+          if (currentRow.length === 3) {
+            rows.push([...currentRow]);
+            currentRow = [];
+          }
+          currentRow.push({type: 'empty'})
+        }
+      } else {
+        currentRow.push(element);
+      }
+    }
+
+    if (currentRow.length > 0) {
+      rows.push([...currentRow]);
+    }
+
+    for (let row of rows) {
+      if (row.length > 3) {
+        console.log("Row too long:", row)
+      }
+    }
+
+    return rows;
+  }
+
   function copyToClipboard() {
     const textToCopy = prompt;
 
@@ -100,29 +143,30 @@
             <div class="step mt-8">
                 <h2 class="text-2xl mb-4 border-b border-gray-600 pb-2">{step.title}</h2>
 
-                <div class={step.elements.length > 1 || (step.elements.length === 1 && step.elements[0].type === "multiselect") ? "grid ss sm:grid-cols-2 md:grid-cols-3 gap-4" : ""}>
-                    {#each step.elements as element}
-                        {#if element.type === "select"}
-                            <Select label="{element.label}" bind:items="{element.options}"/>
-                        {:else if element.type === "text"}
-                            <TextInput label="{element.label}" bind:text="{element.value}"/>
-                        {:else if element.type === "textarea"}
-                            <div class="col-span-full">
+                {#each processStepElements(step.elements) as row}
+                    <div class="mt-4 {row.length === 1 && row[0].type !== 'textarea' ? '' : `grid ss sm:grid-cols-${row.length} md:grid-cols-${row.length} gap-4`}">
+                        {#each row as element}
+                            {#if element.type === 'select'}
+                                <Select label="{element.label}" bind:items="{element.options}"/>
+                            {:else if element.type === 'text'}
+                                <TextInput label="{element.label}" bind:text="{element.value}"/>
+                            {:else if element.type === 'textarea'}
                                 <TextArea label="{element.label}" bind:text="{element.value}"/>
-                            </div>
-                        {:else if element.type === "multiselect"}
-                            <Multiselect bind:items="{element.options}" label="{element.label}"/>
-                        {:else if element.type === "number"}
-                            <NumberInput label="{element.label}" bind:value="{element.value}" min={element.min}
-                                         max={element.max}/>
-                        {:else}
-                            <p>UNKNOWN</p>
-                        {/if}
-                    {/each}
-                </div>
+                            {:else if element.type === 'multiselect'}
+                                <Multiselect bind:items="{element.options}" label="{element.label}"/>
+                            {:else if element.type === 'number'}
+                                <NumberInput label="{element.label}" bind:value="{element.value}" min={element.min}
+                                             max={element.max}/>
+                            {:else if element.type === 'empty'}
+                                <!--  DO NOTHING  -->
+                            {:else}
+                                <p>UNKNOWN</p>
+                            {/if}
+                        {/each}
+                    </div>
+                {/each}
             </div>
         {/each}
-
 
         <h1 class="text-3xl mb-2 mt-8">Prompt</h1>
         <div class="border-t border-gray-700 pt-6">

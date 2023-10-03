@@ -6,56 +6,68 @@ steps:
   - title: Text
     elements:
       - type: text
-        label: Text
-        inactive: No text
+        label: Text 1
         prompt: "Text: {{value}}"
-  - title: Multiple Text
+  - title: Text x2
     elements:
       - type: text
-        label: Text
-        inactive: No text
+        label: Text 1
         prompt: "Text: {{value}}"
       - type: text
-        label: Text
-        inactive: No text
+        label: Text 2
+        prompt: "Text: {{value}}"
+  - title: Text x3
+    elements:
+      - type: text
+        label: Text 1
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text 2
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text 3
         prompt: "Text: {{value}}"
   - title: Textarea
     elements:
       - type: textarea
-        label: Textarea
-        inactive: No textarea
+        label: Textarea 1
         prompt: "Textarea: {{value}}"
-  - title: Multiple Textarea
+  - title: Textarea x2
     elements:
       - type: textarea
-        label: Textarea
-        inactive: No textarea
+        label: Textarea 1
         prompt: "Textarea: {{value}}"
       - type: textarea
-        label: Textarea
-        inactive: No textarea
+        label: Textarea 2
         prompt: "Textarea: {{value}}"
   - title: Number
     elements:
       - type: number
-        label: Number
-        inactive: No number
+        label: Number 1
         prompt: "Number: {{value}}"
-  - title: Multiple Number
+  - title: Number x2
     elements:
       - type: number
-        label: Number
-        inactive: No number
+        label: Number 1
         prompt: "Number: {{value}}"
       - type: number
-        label: Number
-        inactive: No number
+        label: Number 2
+        prompt: "Number: {{value}}"
+  - title: Number x3
+    elements:
+      - type: number
+        label: Number 1
+        prompt: "Number: {{value}}"
+      - type: number
+        label: Number 2
+        prompt: "Number: {{value}}"
+      - type: number
+        label: Number 3
         prompt: "Number: {{value}}"
   - title: Select
     elements:
       - type: select
-        label: Select
-        inactive: No select
+        label: Select 1
         options:
           - value: Option 1
             active: Option 1
@@ -67,11 +79,10 @@ steps:
             active: Option 3
             selected: false
         prompt: "Select: {{value}}"
-  - title: Multiple Select
+  - title: Select x2
     elements:
       - type: select
-        label: Select
-        inactive: No select
+        label: Select 1
         options:
           - value: Option 1
             active: Option 1
@@ -84,8 +95,7 @@ steps:
             selected: false
         prompt: "Select: {{value}}"
       - type: select
-        label: Select
-        inactive: No select
+        label: Select 2
         options:
           - value: Option 1
             active: Option 1
@@ -97,68 +107,144 @@ steps:
             active: Option 3
             selected: false
         prompt: "Select: {{value}}"
-  - title: Multiselect (one item)
+  - title: Select x3
     elements:
-      - type: multiselect
-        label: Multiselect
-        inactive: No multiselect
+      - type: select
+        label: Select 1
         options:
           - value: Option 1
             active: Option 1
-            inactive: Option 1
-            selected: false
-        prompt: "Multiselect: {{value}}"
-  - title: Multiselect (two items)
-    elements:
-      - type: multiselect
-        label: Multiselect
-        inactive: No multiselect
-        options:
-          - value: Option 1
-            active: Option 1
-            inactive: Option 1
             selected: false
           - value: Option 2
             active: Option 2
-            inactive: Option 2
-            selected: true
-        prompt: "Multiselect: {{value}}"
-  - title: Multiselect (three items)
-    elements:
-      - type: multiselect
-        label: Multiselect
-        inactive: No multiselect
-        options:
-          - value: Option 1
-            active: Option 1
-            inactive: Option 1
-            selected: false
-          - value: Option 2
-            active: Option 2
-            inactive: Option 2
             selected: true
           - value: Option 3
             active: Option 3
-            inactive: Option 3
+            selected: false
+        prompt: "Select: {{value}}"
+      - type: select
+        label: Select 2
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Select: {{value}}"
+      - type: select
+        label: Select 3
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Select: {{value}}"
+  - title: Multiselect x1
+    elements:
+      - type: multiselect
+        label: Multiselect
+        options:
+          - value: Option 1
+            active: Option 1
             selected: false
         prompt: "Multiselect: {{value}}"
+  - title: Multiselect x2
+    elements:
+      - type: multiselect
+        label: Multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+        prompt: "Multiselect: {{value}}"
+  - title: Multiselect x3
+    elements:
+      - type: multiselect
+        label: Multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Multiselect: {{value}}"
+  - title: One multiselect options and one element
+    elements:
+      - type: multiselect
+        label: Multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+        prompt: "Multiselect: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+  - title: Two multiselect options and one element
+    elements:
+      - type: multiselect
+        label: Multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+        prompt: "Multiselect: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+  - title: Three multiselect options and one element
+    elements:
+      - type: multiselect
+        label: Multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Multiselect: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
   - title: All elements
     elements:
       - type: text
         label: Text
-        inactive: No text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
         prompt: "Text: {{value}}"
       - type: textarea
         label: Textarea
-        inactive: No textarea
         prompt: "Textarea: {{value}}"
       - type: number
         label: Number
-        inactive: No number
         prompt: "Number: {{value}}"
       - type: select
         label: Select
-        inactive: No select
         options:
           - value: Option 1
             active: Option 1
@@ -172,18 +258,114 @@ steps:
         prompt: "Select: {{value}}"
       - type: multiselect
         label: Multiselect
-        inactive: No multiselect
         options:
           - value: Option 1
             active: Option 1
-            inactive: Option 1
             selected: false
           - value: Option 2
             active: Option 2
-            inactive: Option 2
             selected: true
           - value: Option 3
             active: Option 3
-            inactive: Option 3
             selected: false
         prompt: "Multiselect: {{value}}"
+  - title: One element and Textarea
+    elements:
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+  - title: Two elements and Textarea
+    elements:
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+  - title: Three elements and Textarea
+    elements:
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+  - title: Four elements and Textarea
+    elements:
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+  - title: Textarea and one element
+    elements:
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+  - title: Textarea and two elements
+    elements:
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+  - title: Textarea and three elements
+    elements:
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+  - title: Textarea and four elements
+    elements:
+      - type: textarea
+        label: Textarea
+        prompt: "Textarea: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        prompt: "Text: {{value}}"

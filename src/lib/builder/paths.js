@@ -9,10 +9,7 @@ console.log("Use Cached files: " + production);
 
 export async function getCategories() {
   if (getPathsCache !== null) {
-    console.log("Using cached paths")
     return getPathsCache;
-  } else {
-    console.log("Cache not found, loading paths")
   }
 
   const categoriesPath = join(process.cwd(), './src/lib/paths');
