@@ -8,6 +8,7 @@
 - type: text
   label: Label above the text input
   value: Default value of the text input # optional
+  inactive: Value is replaced with this when the text input has no value # either value or inactive must be set
   prompt: "Value: {{value}}"
 ```
 

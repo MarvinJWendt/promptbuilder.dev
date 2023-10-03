@@ -1,5 +1,8 @@
 <script>
     export let data;
+
+    // Filter hidden items
+    data = data.filter(category => !category.hidden);
 </script>
 
 <section class="text-center">

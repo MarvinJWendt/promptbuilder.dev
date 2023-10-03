@@ -1,0 +1,21 @@
+name: ✍️ Write an Article
+description: Write an article about a specific topic
+
+steps:
+  - title: Topic
+    elements:
+    - type: text
+      label: Topic of your article
+      prompt: "Topic: \"{{value}}\"\n"
+  - title: Context
+    elements:
+      - type: textarea
+        label: Context of your article
+        inactive: 'No additional context'
+        prompt: |2-
+        
+          Refactor the following code with the selected options:
+        
+          ```
+          {{value}}
+          ```

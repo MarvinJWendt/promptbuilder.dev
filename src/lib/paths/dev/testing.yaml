@@ -1,0 +1,189 @@
+name: 🧪 Testing
+description: All possible elements for testing
+task: This is the task for the AI model
+
+steps:
+  - title: Text
+    elements:
+      - type: text
+        label: Text
+        inactive: No text
+        prompt: "Text: {{value}}"
+  - title: Multiple Text
+    elements:
+      - type: text
+        label: Text
+        inactive: No text
+        prompt: "Text: {{value}}"
+      - type: text
+        label: Text
+        inactive: No text
+        prompt: "Text: {{value}}"
+  - title: Textarea
+    elements:
+      - type: textarea
+        label: Textarea
+        inactive: No textarea
+        prompt: "Textarea: {{value}}"
+  - title: Multiple Textarea
+    elements:
+      - type: textarea
+        label: Textarea
+        inactive: No textarea
+        prompt: "Textarea: {{value}}"
+      - type: textarea
+        label: Textarea
+        inactive: No textarea
+        prompt: "Textarea: {{value}}"
+  - title: Number
+    elements:
+      - type: number
+        label: Number
+        inactive: No number
+        prompt: "Number: {{value}}"
+  - title: Multiple Number
+    elements:
+      - type: number
+        label: Number
+        inactive: No number
+        prompt: "Number: {{value}}"
+      - type: number
+        label: Number
+        inactive: No number
+        prompt: "Number: {{value}}"
+  - title: Select
+    elements:
+      - type: select
+        label: Select
+        inactive: No select
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Select: {{value}}"
+  - title: Multiple Select
+    elements:
+      - type: select
+        label: Select
+        inactive: No select
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Select: {{value}}"
+      - type: select
+        label: Select
+        inactive: No select
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Select: {{value}}"
+  - title: Multiselect (one item)
+    elements:
+      - type: multiselect
+        label: Multiselect
+        inactive: No multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            inactive: Option 1
+            selected: false
+        prompt: "Multiselect: {{value}}"
+  - title: Multiselect (two items)
+    elements:
+      - type: multiselect
+        label: Multiselect
+        inactive: No multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            inactive: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            inactive: Option 2
+            selected: true
+        prompt: "Multiselect: {{value}}"
+  - title: Multiselect (three items)
+    elements:
+      - type: multiselect
+        label: Multiselect
+        inactive: No multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            inactive: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            inactive: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            inactive: Option 3
+            selected: false
+        prompt: "Multiselect: {{value}}"
+  - title: All elements
+    elements:
+      - type: text
+        label: Text
+        inactive: No text
+        prompt: "Text: {{value}}"
+      - type: textarea
+        label: Textarea
+        inactive: No textarea
+        prompt: "Textarea: {{value}}"
+      - type: number
+        label: Number
+        inactive: No number
+        prompt: "Number: {{value}}"
+      - type: select
+        label: Select
+        inactive: No select
+        options:
+          - value: Option 1
+            active: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            selected: false
+        prompt: "Select: {{value}}"
+      - type: multiselect
+        label: Multiselect
+        inactive: No multiselect
+        options:
+          - value: Option 1
+            active: Option 1
+            inactive: Option 1
+            selected: false
+          - value: Option 2
+            active: Option 2
+            inactive: Option 2
+            selected: true
+          - value: Option 3
+            active: Option 3
+            inactive: Option 3
+            selected: false
+        prompt: "Multiselect: {{value}}"

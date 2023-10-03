@@ -13,6 +13,7 @@
 
   let totalPaths = 0;
   categories.forEach(category => {
+    if (category.hidden) return;
     totalPaths += category.paths.length;
   });
 </script>

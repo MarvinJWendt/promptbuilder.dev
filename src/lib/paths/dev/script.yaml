@@ -1,0 +1,17 @@
+name: 🧑‍💻 Write a script
+description: Write a script for Linux, macOS or Windows
+long: |-
+  This prompt generates a script for Linux, macOS or Windows. You can choose between Bash and PowerShell.
+  Script can be used to automate tasks, or to do operations in bulk.
+
+steps:
+  - title: Settings
+    elements:
+      - type: select
+        label: Script Language
+        options:
+          - value: Bash
+            selected: true
+          - value: PowerShell
+            selected: false
+        prompt: 'Script Language: {{value}}'

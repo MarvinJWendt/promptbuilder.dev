@@ -1,5 +1,8 @@
 <script>
     export let categories;
+
+    // Filter hidden categories
+    categories = categories.filter(category => !category.hidden)
 </script>
 
 <nav class="absolute top-24 left-0">

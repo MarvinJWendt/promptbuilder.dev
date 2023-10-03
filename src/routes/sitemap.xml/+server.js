@@ -10,6 +10,12 @@ export async function GET() {
   // Get all paths
   let categories = await getCategories();
   for (let category of categories) {
+
+    // Skip hidden categories
+    if (category.hidden) {
+      continue;
+    }
+
     urls.push(`https://promptbuilder.dev/${category.slug}`);
     for (let path of category.paths) {
       urls.push(`https://promptbuilder.dev/${category.slug}/${path.slug}`);

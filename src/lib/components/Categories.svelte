@@ -6,7 +6,7 @@
 
     export let isPath = false;
 
-    data = data.filter(item => item.slug !== exclude);
+    data = data.filter(item => item.slug !== exclude && !item.hidden);
     data.sort((a, b) => a.name.replace(/^.*? /, '').localeCompare(b.name.replace(/^.*? /, '')))
 
     const numCols = 3;
