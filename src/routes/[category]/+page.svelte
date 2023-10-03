@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Prompt Builder</title>
+    <title>{category.name} prompt library for ChatGPT - Prompt Builder</title>
 </svelte:head>
 
 <script>

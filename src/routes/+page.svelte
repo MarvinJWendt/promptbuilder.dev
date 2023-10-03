@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Prompt Builder 🛠️</title>
+    <title>Prompt builder and library for ChatGPT 🛠️</title>
     <meta name="description" content="Prompt Builder is a free library and builder for ChatGPT prompts.">
 </svelte:head>
 
