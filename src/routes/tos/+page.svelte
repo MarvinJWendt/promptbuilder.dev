@@ -1,6 +1,6 @@
 <svelte:head>
     <title>Terms of Service - Prompt Builder</title>
-    <meta name="description" content="Terms of Service for Prompt Builder">
+    <meta name="description" content="Terms of Service for PromptBuilder.dev">
 </svelte:head>
 
 <article class="prose"><h1>Terms of Service for Prompt Builder</h1>

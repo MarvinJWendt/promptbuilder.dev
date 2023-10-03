@@ -1,6 +1,6 @@
 <svelte:head>
     <title>Privacy Policy - Prompt Builder</title>
-    <meta name="description" content="Privacy Policy for Prompt Builder">
+    <meta name="description" content="Privacy Policy for PromptBuilder.dev">
 </svelte:head>
 
 <article class="prose">
