@@ -1,0 +1,45 @@
+name: 📖 Write Documentation
+description: Write documentation for your code
+long: |-
+  This prompt generates documentation for your code.
+  You can choose the output format and different options for the documentation.
+task: Document the user submitted code. Your goal is to write documentation that is easy to understand and follow.
+
+steps:
+  - title: Settings
+    elements:
+      - type: select
+        label: Output format
+        options:
+          - value: Markdown
+            selected: true
+          - value: HTML
+          - value: Plain text
+        prompt: 'Output format: {{value}}'
+      - type: multiselect
+        options:
+          - value: Include example usages
+            inactive: Do not include example usages
+            selected: true
+          - value: Include the function signature
+            inactive: Do not include the function signature
+            selected: true
+          - value: Include the function descriptions
+            inactive: Do not include the function descriptions
+            selected: true
+          - value: Include the return values
+            inactive: Do not include the return values
+            selected: true
+          - value: Include the parameters
+            inactive: Do not include the parameters
+            selected: true
+          - value: Include the function parameter types
+            inactive: Do not include the function parameter types
+            selected: true
+        prompt: 'Options: {{value}}'
+  - title: Code
+    elements:
+      - type: textarea
+        label: Code to document
+        inactive: No code specified.
+        prompt: "\n```\n{{value}}\n```"
