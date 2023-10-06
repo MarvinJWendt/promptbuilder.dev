@@ -1,0 +1,20 @@
+name: Prompt Request
+description: Request a new prompt
+title: '[Prompt Request]: '
+labels:
+  - proposal
+  - prompt
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Describe what the prompt is about
+      placeholder: Prompt description
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: ' '
+      options:
+        - label: I want to work on this prompt by myself
+          required: false
