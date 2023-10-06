@@ -1,8 +1,9 @@
 name: 🧑‍💻 Write a script
 description: Write a script for Linux, macOS or Windows
 long: |-
-  This prompt generates a script for Linux, macOS or Windows. You can choose between Bash and PowerShell.
+  This prompt generates a script for Linux, macOS or Windows. You can choose between Bash, PowerShell, Python and other common scripting languages.
   Script can be used to automate tasks, or to do operations in bulk.
+task: Your task is to write a script that fits the user specified requirements. The script should follow best practices for the chosen scripting language.
 
 steps:
   - title: Settings
@@ -13,5 +14,34 @@ steps:
           - value: Bash
             selected: true
           - value: PowerShell
-            selected: false
+          - value: Python
+          - value: JavaScript
+          - value: TypeScript
         prompt: 'Script Language: {{value}}'
+      - type: select
+        label: Configuration
+        options:
+          - value: Use CLI flags for configuration
+            selected: true
+          - value: Use environment variables for configuration
+          - value: Use global variables at the top of the script for configuration
+        prompt: 'Style: {{value}}'
+      - type: multiselect
+        options:
+          - value: Include shebang
+            inactive: Do not include a shebang
+            selected: false
+          - value: Include comments
+            inactive: Do not include comments
+            selected: true
+          - value: Use only built-in commands
+            active: You may only use built-in commands. You can recommend installing additional software, but you may not use it in the script.
+            inactive: You may use third party tools in the script, but try to use built-in commands where possible. Clearly state which external tools are required for the script.
+            selected: true
+        prompt: 'Options: {{value}}'
+  - title: Description
+    elements:
+      - type: textarea
+        label: Describe what the script should do
+        inactive: No description specified.
+        prompt: "{{value}}"

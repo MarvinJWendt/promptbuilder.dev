@@ -6,10 +6,9 @@
 </script>
 
 <div class="flex flex-grow flex-col gap-2">
-    <label for="{id}" class="block text-sm"><br></label>
+    <label for="{id}" class="block text-sm"><br/></label> <!-- Label is a placeholder to position the button - do not use the ID in the button -->
     <button
-            id="{id}"
-            class="btn w-full {item.selected ? 'btn-success' : 'btn-error btn-outline'}"
+            class="btn w-full {item.selected ? 'btn-success hover:btn-error' : 'btn-error hover:btn-success btn-outline'}"
             on:click={() => {item.selected = !item.selected}}>
         {item.value}
     </button>
