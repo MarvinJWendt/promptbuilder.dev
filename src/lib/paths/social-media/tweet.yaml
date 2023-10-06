@@ -1,5 +1,12 @@
 name: 🕊️ Generate a tweet
 description: Generate a tweet or thread about a specific topic
+
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+    twitter: MarvinJWendt
+    web: https://marvinjwendt.com
+
 steps:
   - title: Tweet Style
     elements:

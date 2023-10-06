@@ -5,6 +5,12 @@ long: |-
   You can choose the output format and different options for the documentation.
 task: Document the user submitted code. Your goal is to write documentation that is easy to understand and follow.
 
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+    twitter: MarvinJWendt
+    web: https://marvinjwendt.com
+
 steps:
   - title: Settings
     elements:

@@ -1,6 +1,12 @@
 name: ♻️ Refactor code
 description: Common code refactoring tasks
 
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+    twitter: MarvinJWendt
+    web: https://marvinjwendt.com
+
 steps:
   - title: Additional options
     elements:

@@ -52,6 +52,7 @@ export async function getCategories() {
   if (production) {
     getPathsCache = results;
   }
+
   return results;
 }
 

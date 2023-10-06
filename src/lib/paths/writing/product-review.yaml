@@ -4,6 +4,10 @@ long: |-
   This prompt generates a product review with your pro and con arguments.
 task: Write a product review. Your goal is to write a review that sounds like a real person wrote it. Use the rating to decide whether to prioritize the pro or con arguments. Write fluently and naturally.
 
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+
 steps:
   - title: Settings
     elements:

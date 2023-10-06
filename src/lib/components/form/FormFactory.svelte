@@ -174,7 +174,47 @@
             </div>
         </div>
 
-
+        {#if pathData.contributors}
+            <h2 class="text-2xl mb-4 border-b border-gray-600 pb-2">Contributors</h2>
+            <p class="mb-4">This prompt was created by the following contributors:</p>
+            <div class="overflow-x-auto">
+                <table class="table">
+                    <!-- head -->
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Twitter</th>
+                        <th>GitHub</th>
+                        <th>Website</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {#each pathData.contributors as contributor}
+                        <tr>
+                            <td>{contributor.name}</td>
+                            <td>
+                                {#if contributor.twitter}
+                                    <a href="https://twitter.com/{contributor.twitter}" target="_blank"
+                                       class="link">@{contributor.twitter}</a>
+                                {/if}
+                            </td>
+                            <td>
+                                {#if contributor.github}
+                                    <a href="https://github.com/{contributor.github}" target="_blank"
+                                       class="link">@{contributor.github}</a>
+                                {/if}
+                            </td>
+                            <td>
+                                {#if contributor.web}
+                                    <a href="{contributor.web}" target="_blank" class="link">{contributor.web}</a>
+                                {/if}
+                            </td>
+                        </tr>
+                    {/each}
+                    </tbody>
+                </table>
+            </div>
+        {/if}
     </div>
 </div>
 

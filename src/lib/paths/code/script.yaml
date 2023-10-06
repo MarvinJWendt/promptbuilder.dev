@@ -5,6 +5,12 @@ long: |-
   Script can be used to automate tasks, or to do operations in bulk.
 task: Your task is to write a script that fits the user specified requirements. The script should follow best practices for the chosen scripting language.
 
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+    twitter: MarvinJWendt
+    web: https://marvinjwendt.com
+
 steps:
   - title: Settings
     elements:

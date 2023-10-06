@@ -19,7 +19,7 @@
     <meta name="description" content="{path.description} using ChatGPT">
 </svelte:head>
 
-<Sidebar categories="{data.categories}" />
+<Sidebar categories="{data.categories}"/>
 <section>
     <div class="flex flex-col items-center">
         <div class="w-full">

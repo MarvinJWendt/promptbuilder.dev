@@ -1,6 +1,12 @@
 name: ✍️ Write an Article
 description: Write an article about a specific topic
 
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+    twitter: MarvinJWendt
+    web: https://marvinjwendt.com
+
 steps:
   - title: Topic
     elements:

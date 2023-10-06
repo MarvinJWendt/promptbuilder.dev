@@ -2,6 +2,12 @@ name: 🧪 Testing
 description: All possible elements for testing
 task: This is the task for the AI model
 
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+    twitter: MarvinJWendt
+    web: https://marvinjwendt.com
+
 steps:
   - title: Text
     elements:

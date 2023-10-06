@@ -5,6 +5,12 @@ long: |-
   This prompt rewrites your texts to make them more search engine friendly.
   You can configure keywords and other settings.
 
+contributors:
+  - name: Marvin Wendt
+    github: MarvinJWendt
+    twitter: MarvinJWendt
+    web: https://marvinjwendt.com
+
 steps:
   - title: Keywords
     elements:
