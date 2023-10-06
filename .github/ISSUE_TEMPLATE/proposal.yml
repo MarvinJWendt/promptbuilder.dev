@@ -1,0 +1,13 @@
+name: Proposal
+description: Propose a new feature
+title: '[Proposal]: '
+labels:
+  - proposal
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Describe the proposal here
+      placeholder: Proposal description
+    validations:
+      required: true
