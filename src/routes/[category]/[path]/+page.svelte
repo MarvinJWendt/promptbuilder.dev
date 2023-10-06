@@ -26,6 +26,7 @@
             <div class="flex flex-col items-center">
                 <h1 class="text-3xl sm:text-5xl mb-2 font-bold">{path.name}</h1>
                 <p class="text-xl mb-6 text-gray-400">{path.description}</p>
+                <a class="btn btn-ghost btn-sm" href="https://github.com/MarvinJWendt/promptbuilder.dev/blob/main/src/prompts/{path.categorySlug}/{path.slug}.yaml" target="_blank">View this prompt on GitHub</a>
                 {#if path.long}
                     <p class="text-center">{@html path.long.replaceAll("\n", "<br/>")}</p>
                 {/if}

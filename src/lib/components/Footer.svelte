@@ -2,6 +2,7 @@
     <div class="grid grid-flow-col gap-4">
         <a href="https://marvinjwendt.com" class="link link-hover">Contact</a>
         <a href="https://marvinjwendt.com/donate" class="link link-hover">Donate</a>
+        <a href="https://github.com/MarvinJWendt/promptbuilder.dev" class="link link-hover">GitHub</a>
     </div>
     <div>
         <p>Copyright © 2023 by <a href="https://twitter.com/MarvinJWendt">Marvin Wendt</a></p>

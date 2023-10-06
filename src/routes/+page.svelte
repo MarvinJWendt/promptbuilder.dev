@@ -25,8 +25,10 @@
         <br/>
         <br/>
         <p class="text-lg text-center">
-            PromptBuilder is a free library and builder for ChatGPT prompts. All prompts are carefully crafted to get
+            Prompt Builder is a free library and builder for ChatGPT prompts. All prompts are carefully crafted to get
             good output.
+            <br/>
+            Prompt Builder is open source and on <a class="link" href="https://github.com/MarvinJWendt/promptbuilder.dev">GitHub</a> - feel free to contribute!
             <br/>
             There are currently <span class="font-bold">{totalPaths}</span> total prompt templates available.
         </p>
