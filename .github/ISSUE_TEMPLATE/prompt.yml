@@ -14,7 +14,7 @@ body:
       required: true
   - type: checkboxes
     attributes:
-      label: ' '
+      label: Meta
       options:
         - label: I want to work on this prompt by myself
           required: false
