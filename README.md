@@ -2,8 +2,10 @@
 <p align="center">No need to study prompt engineering</p>
 
 <p align="center">Prompt Builder is a free library and builder for ChatGPT prompts. All prompts are carefully crafted to get good output.</p>
+<br/>
 
-<img src="https://github.com/MarvinJWendt/promptbuilder.dev/assets/31022056/dd2e6c99-b9be-4ec3-a982-c968a5803a5f" alt="PromptBuilder">
+![Screenshot](https://github.com/MarvinJWendt/promptbuilder.dev/assets/31022056/54e83ace-8f77-4585-bd53-69b372e8b00e)
+
 
 ## Usage
 
