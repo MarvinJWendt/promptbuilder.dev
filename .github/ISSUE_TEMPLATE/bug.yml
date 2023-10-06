@@ -1,0 +1,21 @@
+name: Bug report
+description: Report a bug
+title: '[Bug]: '
+labels:
+  - bug
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Describe the bug here
+      placeholder: Bug description
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction
+      description: Explain how this bug can be reproduced
+      value: |-
+        1. 
+        2. 
+        3. 
