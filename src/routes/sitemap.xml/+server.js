@@ -1,4 +1,4 @@
-import {getCategories} from "$lib/builder/paths.js";
+import {getCategories} from "$lib/builder/prompts.js";
 
 export async function GET() {
   const urls = [

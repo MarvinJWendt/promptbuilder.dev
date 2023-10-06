@@ -12,7 +12,7 @@ export async function getCategories() {
     return getPathsCache;
   }
 
-  const categoriesPath = join(process.cwd(), './src/lib/paths');
+  const categoriesPath = join(process.cwd(), './src/prompts');
   const categories = readdirSync(categoriesPath, {withFileTypes: true})
     .filter(dirent => dirent.isDirectory())
     .map(dirent => dirent.name);

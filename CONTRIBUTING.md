@@ -1,8 +1,48 @@
 # Contributing to PromptBuilder.dev
 
-## Adding Prompts
+## Running PromptBuilder.dev locally
 
-### Text
+To run PromptBuilder.dev locally, you'll need to have [Node.js](https://nodejs.org/en/) and [pnpm](https://pnpm.io/)
+installed.
+
+1. Clone the repository (`git clone https://github.com/MarvinJWendt/promptbuilder.dev`)
+2. Change into the directory (`cd promptbuilder.dev`)
+3. Install dependencies (`pnpm install`)
+4. Start the development server (`pnpm dev`)
+5. Open [localhost:5173](http://localhost:5173) in your browser
+
+## Contributing to Prompts
+
+Adding or modifing prompts is easy. All prompts are written in YAML and are located at [`/src/prompts`](https://github.com/MarvinJWendt/promptbuilder.dev/tree/main/src/prompts).
+
+### Base structure
+
+```yaml
+name: [EMOJI] Name of the Prompt
+description: A short description of the prompt
+long: |-
+  A longer description of the prompt.
+  This will be shown when the user clicks on the prompt.
+task: Describe the task for the AI here.
+
+contributors:
+  - name: Your Name
+    github: Your GitHub username
+    twitter: Your Twitter username
+    web: Your website
+
+steps:
+  - title: Title of the section / step
+    elements:
+      [elements]
+  - title: Another section
+    elements:
+      [elements]
+```
+
+### Elements
+
+#### Text
 
 ```yaml
 - type: text
@@ -12,7 +52,7 @@
   prompt: "Value: {{value}}"
 ```
 
-### Textarea
+#### Textarea
 
 ```yaml
 - type: textarea
@@ -22,7 +62,7 @@
   prompt: "Value: {{value}}"
 ```
 
-### Number
+#### Number
 
 ```yaml
 - type: number
@@ -33,7 +73,7 @@
   prompt: "Value: {{value}}"
 ```
 
-### Select
+#### Select
 
 ```yaml
 - type: select
@@ -49,7 +89,7 @@
   prompt: "Value: {{value}}"
 ```
 
-### Toggle
+#### Toggle
 
 ```yaml
 - type: toggle
@@ -59,7 +99,7 @@
   prompt: 'Value: {{value}}'
 ```
 
-### Multiselect
+#### Multiselect
 
 ```yaml
 - type: multiselect

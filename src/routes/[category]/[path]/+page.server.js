@@ -1,4 +1,4 @@
-import {getCategories} from "$lib/builder/paths.js";
+import {getCategories} from "$lib/builder/prompts.js";
 import {error} from "@sveltejs/kit";
 
 /** @type {import('./$types').PageLoad} */

@@ -1,4 +1,4 @@
-import {getCategories} from "$lib/builder/paths.js";
+import {getCategories} from "$lib/builder/prompts.js";
 
 /** @type {import('./$types').PageLoad} */
 export async function load() {
