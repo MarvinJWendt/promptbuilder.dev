@@ -8,7 +8,6 @@
 </script>
 
 <svelte:head>
-    <title>Prompt Builder</title>
     <script src="/assets/js/particles.min.js"></script>
 </svelte:head>
 
